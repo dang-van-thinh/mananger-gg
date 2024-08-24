@@ -14,4 +14,8 @@ class Session extends Model
         'start_time',
         'end_time'
     ];
+
+    public function classes(){
+        return $this->hasMany(Classes::class);
+    }
 }

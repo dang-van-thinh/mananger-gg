@@ -15,7 +15,7 @@ class Payroll extends Model
         'pay_date_start',
         'pay_date_end',
     ];
-    public function Teacher(){
-        return $this->belongsTo(Teacher::class);
+    public function teacher(){
+        return $this->belongsToMany(Teacher::class);
     }
 }
