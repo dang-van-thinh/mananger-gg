@@ -18,7 +18,7 @@ class Teacher extends Model
         'hourly_rate',
         'enrollment_date',
     ];
-    public function Payroll(){
+    public function payroll(){
         return $this->hasOne(Payroll::class);
     }
 }
