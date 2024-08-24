@@ -24,4 +24,8 @@ class Student extends Model
         return $this->hasMany(Income::class);
     }
 
+    public function classes(){
+        return $this->belongsToMany(Classes::class, 'student_classes', 'student_id', 'class_id');
+    }
+
 }
