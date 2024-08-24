@@ -3,6 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Classes;
+use App\Models\DayOfWeek;
 
 return new class extends Migration
 {
@@ -11,12 +13,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sessions', function (Blueprint $table) {
-            $table->id();
-            $table->string('name')->nullable();
-            $table->date('start_time')->nullable();
-            $table->date('end_time')->nullable();
-            $table->softDeletes();
+        Schema::create('day_of_class', function (Blueprint $table) {
+            $table->foreignIdFor(Classes::class)->constrained();
+            $table->foreignIdFor(DayOfWeek::class)->constrained();
+            $table->primary('classes_id','day_of_week_id');
         });
     }
 
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sessions');
+        Schema::dropIfExists('day_of_class');
     }
 };
