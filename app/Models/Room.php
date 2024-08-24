@@ -16,4 +16,8 @@ class Room extends Model
         'capacity',
         'location',
     ];
+
+    public function classes(){
+        return $this->belongsToMany(Classes::class);
+    }
 }

@@ -7,7 +7,7 @@ use App\Http\Requests\CreateTeacherRequest;
 
 class TeacherService
 {
-    private $teacherRepository;
+    private TeacherRepository $teacherRepository;
 
     public function __construct(TeacherRepository $teacherRepository)
     {

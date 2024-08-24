@@ -9,4 +9,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Schedule extends Model
 {
     use HasFactory, SoftDeletes;
+
+    protected $fillable = [
+        'day'
+    ];
+
+    public function classes(){
+        return $this->belongsToMany(Classes::class);
+    }
 }

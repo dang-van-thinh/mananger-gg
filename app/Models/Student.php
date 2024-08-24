@@ -18,4 +18,10 @@ class Student extends Model
         'address',
         'enrollment_date',
     ];
+
+    public function income()
+    {
+        return $this->hasMany(Income::class);
+    }
+
 }

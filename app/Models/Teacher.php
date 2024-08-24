@@ -19,6 +19,10 @@ class Teacher extends Model
         'enrollment_date',
     ];
     public function payroll(){
-        return $this->hasOne(Payroll::class);
+        return $this->hasMany(Payroll::class);
+    }
+
+    public function classes(){
+        return $this->hasMany(Classes::class);
     }
 }
