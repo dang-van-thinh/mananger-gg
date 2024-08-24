@@ -49,4 +49,7 @@ class Classes extends Model
     {
         return $this->hasMany(Schedule::class);
     }
+    public function student(){
+        return $this->belongsToMany(Student::class,'student_classes', 'student_id', 'class_id');
+    }
 }
