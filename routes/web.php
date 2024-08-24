@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,8 +20,4 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', [Controller::class, 'action']);
-
-
-Route::get('/quan', [Controller::class, 'quan']);
-
+Route::post('/teachers', [TeacherController::class, 'store']);
