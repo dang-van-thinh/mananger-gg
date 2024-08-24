@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use App\Models\Classes;
-
+use \Illuminate\Support\Facades\Date;
 return new class extends Migration
 {
     /**
@@ -18,10 +18,10 @@ return new class extends Migration
             $table->decimal('amount')->nullable();
             $table->string('title')->nullable();
             $table->text('description')->nullable();
-            $table->date('date')->nullable()->default();
+            $table->date('date')->default(Date::now());
             $table->string('received_from')->nullable();
             $table->string('payment_method')->nullable();
-            $table->text('notes')->nullable();
+            $table->text('note')->nullable();
             $table->timestamps();
         });
     }
