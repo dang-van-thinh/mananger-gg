@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,9 +16,4 @@ use Illuminate\Support\Facades\Route;
 |
 // check git
 */
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-Route::post('/teachers', [TeacherController::class, 'store']);
+Route::get('/',[DashboardController::class,'dashboard']);
