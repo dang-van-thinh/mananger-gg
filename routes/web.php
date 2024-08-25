@@ -16,4 +16,5 @@ use Illuminate\Support\Facades\Route;
 |
 // check git
 */
-Route::get('/',[DashboardController::class,'dashboard']);
+
+Route::get('/', [DashboardController::class, 'dashboard']);
