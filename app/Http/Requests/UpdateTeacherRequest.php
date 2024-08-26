@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateTeacherRequest extends FormRequest
+class UpdateTeacherRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,17 +28,10 @@ class CreateTeacherRequest extends FormRequest
             'qualification' => 'required',
             'hourly_rate' => 'required',
             'phone' => 'required',
-            'image' => 'required',
             'degree' => 'required',
             'address' => 'required',
         ];
     }
-
-    /**
-     * Get the error messages for the defined validation rules.
-     *
-     * @return array<string, string>
-     */
     public function messages(): array
     {
         return [
@@ -48,7 +41,6 @@ class CreateTeacherRequest extends FormRequest
             'qualification.required' => 'Không được bỏ trống Thông tin chuyên môn.',
             'hourly_rate.required' => 'Không được bỏ trống Lương theo giờ của giáo viên.',
             'phone.required' => 'Không được bỏ trống số điện thoại.',
-            'image.required' => 'Không được bỏ trống hình ảnh.',
             'degree.required' => 'Không được bỏ trống Bằng cấp.',
             'address.required' => 'Không được bỏ trống địa chỉ.',
         ];

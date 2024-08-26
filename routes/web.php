@@ -17,3 +17,15 @@ use Illuminate\Support\Facades\Route;
 // check git
 */
 Route::get('/',[DashboardController::class,'dashboard']);
+
+// Route::get('/list-teacher',[TeacherController::class,'index'])->name('listTeacher');
+
+// Route::get('/create-teacher',[TeacherController::class,'create'])->name('createTeacher');
+// Route::post('/create-teacher',[TeacherController::class,'store'])->name('createPostTeacher');
+
+// Route::delete('/delete-teacher/{id}', [TeacherController::class, 'destroy'])->name('deleteTeacher');
+
+// Route::get('/update-teacher/{id}',[TeacherController::class,'edit'])->name('updateTeacher');
+// Route::put('/update-teacher/{id}',[TeacherController::class,'update'])->name('updatePostTeacher');
+
+Route::resource('teachers', TeacherController::class);
