@@ -10,7 +10,7 @@ use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/',[DashboardController::class,'dashboard']);
+Route::get('/',[DashboardController::class,'dashboard'])->name('dashboard');
 
 Route::resource('role', RoleController::class);
 Route::resource('user', UserController::class);
