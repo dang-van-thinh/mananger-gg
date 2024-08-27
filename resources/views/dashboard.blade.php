@@ -82,7 +82,6 @@
         <!-- /Widgets -->
         {{--         thêm nội dung vào đây --}}
 
-
     </div>
     <!-- .animated -->
 @endsection

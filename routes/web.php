@@ -2,10 +2,11 @@
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',[DashboardController::class,'dashboard']);
 
+Route::resource('students', StudentController::class);
 Route::resource('teachers', TeacherController::class);
-Route::get('/', [DashboardController::class, 'dashboard']);

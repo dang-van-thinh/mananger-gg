@@ -17,6 +17,7 @@ class Student extends Model
         'birth_day',
         'address',
         'enrollment_date',
+        'image'
     ];
 
     public function income()
