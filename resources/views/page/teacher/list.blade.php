@@ -37,7 +37,7 @@
                     <th scope="row">{{ $loop->iteration }}</th>
                     <td>{{$value->name}}</td>
                     <td>
-                        <img class="width-100 height-100" src="{{Storage::url($value->image) }}" alt=""
+                        <img class="width-100 height-100" src="{{'storage/'.$value->image}}" alt=""
                         ></td>
                     <td>{{$value->email}}</td>
                     <td>{{$value->phone}}</td>

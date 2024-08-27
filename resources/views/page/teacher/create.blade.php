@@ -17,7 +17,7 @@
                         <label class=" form-control-label">Tên Giảng Viên</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                            <input type="text" class="form-control" name="name" placeholder="Nhập họ tên của giảng viên">
+                            <input type="text" class="form-control" name="name" value="{{ old('name', $teacher->name ?? '')}}" placeholder="Nhập họ tên của giảng viên">
                         </div>
                         <small class="form-text text-danger badge">{{ $errors->first('name') }}</small>
                     </div>
@@ -25,7 +25,7 @@
                         <label class=" form-control-label">Email</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
-                            <input type="text" class="form-control" name="email" placeholder="Nhập email của giảng viên">
+                            <input type="text" class="form-control" name="email" value="{{ old('email', $teacher->email ?? '')}}" placeholder="Nhập email của giảng viên">
                         </div>
                         <small class="form-text text-danger badge">{{ $errors->first('email') }}</small>
                     </div>
@@ -33,7 +33,7 @@
                         <label class=" form-control-label">Ngày sinh</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-                            <input type="date" class="form-control" name="birth_day" >
+                            <input type="date" class="form-control" name="birth_day"  value="{{ old('birth_day', $teacher->birth_day ?? '')}}">
                         </div>
                         <small class="form-text text-danger badge">{{ $errors->first('birth_day') }}</small>
                     </div>
@@ -41,7 +41,7 @@
                         <label class=" form-control-label">Bằng Cấp</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-graduation-cap"></i></div>
-                            <input type="text" class="form-control" name="degree" placeholder="Nhập bằng cấp của giảng viên">
+                            <input type="text" class="form-control" name="degree" value="{{ old('degree', $teacher->degree ?? '')}}" placeholder="Nhập bằng cấp của giảng viên">
                         </div>
                         <small class="form-text text-danger badge">{{ $errors->first('degree') }}</small>
                     </div>
@@ -53,7 +53,7 @@
                         <label class=" form-control-label">Chuyên Môn</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-book"></i></div>
-                            <input type="text" class="form-control" name="qualification" placeholder="Nhập chuyên môn của giảng viên">
+                            <input type="text" class="form-control" name="qualification" value="{{ old('qualification', $teacher->qualification ?? '')}}" placeholder="Nhập chuyên môn của giảng viên">
                         </div>
                         <small class="form-text text-danger badge">{{ $errors->first('qualification') }}</small>
                     </div>
@@ -61,7 +61,7 @@
                         <label class=" form-control-label">Số Điện Thoại</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-phone"></i></div>
-                            <input type="text" class="form-control" name="phone" placeholder="Nhập số điện thoại của giảng viên">
+                            <input type="text" class="form-control" name="phone" value="{{ old('phone', $teacher->phone ?? '')}}" placeholder="Nhập số điện thoại của giảng viên">
                         </div>
                         <small class="form-text text-danger badge">{{ $errors->first('phone') }}</small>
                     </div>
@@ -69,7 +69,7 @@
                         <label class=" form-control-label">Lương Theo Giờ</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-usd"></i></div>
-                            <input type="text" class="form-control" name="hourly_rate" placeholder="Nhập lương cho giảng viên">
+                            <input type="text" class="form-control" name="hourly_rate" value="{{ old('hourly_rate', $teacher->hourly_rate ?? '')}}" placeholder="Nhập lương cho giảng viên">
                         </div>
                         <small class="form-text text-danger badge">{{ $errors->first('hourly_rate') }}</small>
                     </div>
@@ -77,7 +77,7 @@
                         <label class=" form-control-label">Địa Chỉ</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-map-marker"></i></div>
-                            <input type="text" class="form-control" name="address" placeholder="Nhập địa chỉ của giảng viên">
+                            <input type="text" class="form-control" name="address" value="{{ old('address', $teacher->address ?? '')}}" placeholder="Nhập địa chỉ của giảng viên">
                         </div>
                         <small class="form-text text-danger badge">{{ $errors->first('address') }}</small>
                     </div>
@@ -87,7 +87,7 @@
                 <label class=" form-control-label">Ảnh</label>
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-picture-o"></i></div>
-                    <input class="form-control" type="file" name="image" >
+                    <input class="form-control" type="file" name="image">
                 </div>
                 <small class="form-text text-danger badge">{{ $errors->first('image') }}</small>
             </div>

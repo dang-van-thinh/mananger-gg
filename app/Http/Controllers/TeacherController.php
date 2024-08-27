@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateTeacherRequest;
-use App\Http\Requests\UpdateTeacherRequest;
+use App\Http\Requests\teacher\CreateTeacherRequest;
+use App\Http\Requests\teacher\UpdateTeacherRequest;
 use App\Http\Service\TeacherService;
-use Illuminate\Http\Request;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
+
 
 class TeacherController extends Controller
 {
@@ -36,7 +35,7 @@ class TeacherController extends Controller
         if($this->teacherService->createTeacher($request)){
             return redirect()->route('teachers.create')->with('success', 'Thêm giảng viên thành công.');
         }else{
-            return back()->with('messager', 'Thêm giảng viên thất bại.');
+            return back()->with('error', 'Thêm giảng viên thất bại.');
         }         
     }
 
