@@ -14,9 +14,8 @@ return new class extends Migration
         Schema::create('sessions', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
-            $table->date('start_time')->nullable();
-            $table->date('end_time')->nullable();
-            $table->softDeletes();
+            $table->time('start_time')->nullable();
+            $table->time('end_time')->nullable();
         });
     }
 

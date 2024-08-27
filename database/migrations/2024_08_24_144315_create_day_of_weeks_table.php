@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('day_of_weeks', function (Blueprint $table) {
             $table->id();
             $table->string('name',50)->nullable();
-            $table->timestamps();
         });
     }
 
