@@ -5,7 +5,7 @@ namespace App\Http\Service;
 use App\Http\Repository\TeacherRepository;
 use App\Http\Requests\CreateTeacherRequest;
 use App\Http\Requests\UpdateTeacherRequest;
-
+use Illuminate\Support\Facades\Storage;
 class TeacherService
 {
     private TeacherRepository $teacherRepository;
@@ -16,44 +16,42 @@ class TeacherService
     }
 
     public function createTeacher(CreateTeacherRequest $request)
-    {
-        $image = $request->file('image');
-        $imageName =  time(). '.'. $image->getClientOriginalExtension();
-        $linkStorage = 'imageTeacher/';
-        $image->move(public_path($linkStorage), $imageName );
-        $data = [
-            'name' => $request->name,
-            'image' => $imageName,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'degree' => $request->degree,
-            'address' => $request->address,
-            'birth_day' => $request->birth_day,
-            'qualification' => $request->qualification,
-            'hourly_rate' => $request->hourly_rate,
-        ];
-        // dd($data);
-        return $this->teacherRepository->create($data);
+{
+    $data = [
+        'name' => $request->name,
+        'email' => $request->email,
+        'phone' => $request->phone,
+        'degree' => $request->degree,
+        'address' => $request->address,
+        'birth_day' => $request->birth_day,
+        'qualification' => $request->qualification,
+        'hourly_rate' => $request->hourly_rate,
+    ];
+
+    if ($request->hasFile('image')) {
+        $data['image'] = Storage::put('teacher', $request->file('image'));
     }
+
+    return $this->teacherRepository->create($data);
+}
+
     
-    public function listTeacher()
+    public function getAllTeachers()
     {
-        $listTeacher = $this->teacherRepository->list();
+        $listTeacher = $this->teacherRepository->getAll();
         return view('page.teacher.list', compact('listTeacher'));
     }
     public function deleteTeacher($id)
     {
         return $this->teacherRepository->delete($id);
     }
-    public function findTeacher(string $id){
-        return $this->teacherRepository->find($id);
+    public function findTeacher(string $id)
+    {
+        return $this->teacherRepository->findOrFail($id);
     }
-    public function updateTeacher(UpdateTeacherRequest $request, $id){
-        $teacher = $this->teacherRepository->find($id);
-        if (!$teacher) {
-            return false;
-        }
-    
+    public function updateTeacher(UpdateTeacherRequest $request, $id)
+    {
+        $teacher = $this->teacherRepository->findOrFail($id);
         $data = [
             'name' => $request->name,
             'email' => $request->email,
@@ -64,27 +62,15 @@ class TeacherService
             'qualification' => $request->qualification,
             'hourly_rate' => $request->hourly_rate,
         ];
-    
         if ($request->hasFile('image')) {
-            // Xóa ảnh cũ nếu có
-            if ($teacher->image && file_exists(public_path('imageTeacher/' . $teacher->image))) {
-                unlink(public_path('imageTeacher/' . $teacher->image));
+            if (Storage::exists($teacher->image)) {
+                Storage::delete($teacher->image);
             }
-    
-            // Lưu ảnh mới
-            $image = $request->file('image');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $linkStorage = 'imageTeacher/';
-            $image->move(public_path($linkStorage), $imageName);
-            $data['image'] = $imageName;
-        } elseif (!$teacher->image) {
-            // Nếu không có ảnh mới  thì k phải đổi
+            $data['image'] = Storage::put('public/teacher', $request->file('image'));
+
+        } elseif (!$request->hasFile('image') && $teacher->image) {
             $data['image'] = $teacher->image;
-        }
-    
+        }    
         return $this->teacherRepository->update($id, $data);
     }
-    
-    
-
 }

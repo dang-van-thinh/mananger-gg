@@ -6,6 +6,7 @@ use App\Http\Requests\CreateTeacherRequest;
 use App\Http\Requests\UpdateTeacherRequest;
 use App\Http\Service\TeacherService;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class TeacherController extends Controller
 {
@@ -20,7 +21,7 @@ class TeacherController extends Controller
 
     public function index()
     {
-        return $this->teacherService->listTeacher();
+        return $this->teacherService->getAllTeachers();
     }
 
 
@@ -32,50 +33,43 @@ class TeacherController extends Controller
 
     public function store(CreateTeacherRequest $request)
     {
-       $dataTeacher = $this->teacherService->createTeacher($request);
-       if ($dataTeacher) {
-        // Điều hướng đến trang danh sách giáo viên với thông báo thành công
-        return redirect()->route('teachers.index')->with('success', 'Thêm giảng viên thành công.');
-    } else {
-        // Nếu có lỗi, điều hướng trở lại với thông báo lỗi
-        return redirect()->back()->with('error', 'Thêm giảng viên thất bại.');
-    }
+        if($this->teacherService->createTeacher($request)){
+            return redirect()->route('teachers.create')->with('success', 'Thêm giảng viên thành công.');
+        }else{
+            return back()->with('messager', 'Thêm giảng viên thất bại.');
+        }         
     }
 
 
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $teacher = $this->teacherService->findTeacher($id);
+        return response()->json($teacher);
     }
 
 
     public function edit($id)
     {
         $teacher = $this->teacherService->findTeacher($id);
-        if ($teacher) {
-            return view('page.teacher.update', compact('teacher'));
-        } else {
-            return redirect()->route('teachers.index')->with('error', 'Không tìm thấy giảng viên.');
-        }
+        return view('page.teacher.update', compact('teacher'));
+        
     }
 
     public function update(UpdateTeacherRequest $request, $id)
-    {
-        $updated = $this->teacherService->updateTeacher($request, $id);
-        if ($updated) {
+    {  
+        if ($this->teacherService->updateTeacher($request, $id)) {
             return redirect()->route('teachers.index')->with('success', 'Sửa giảng viên thành công.');
         } else {
-            return redirect()->back()->with('error', 'Sửa giảng viên thất bại.');
+            return back()->with('error', 'Sửa giảng viên thất bại. Vui lòng thử lại.');
         }
     }
 
     public function destroy($id)
     {
-        $deleted = $this->teacherService->deleteTeacher($id);
-        if ($deleted) {
+        if( $this->teacherService->deleteTeacher($id)){
             return redirect()->route('teachers.index')->with('success', 'Xóa giảng viên thành công.');
-        } else {
-            return redirect()->route('teachers.index')->with('error', 'Xóa giảng viên thất bại.');
-        }
+        }else{
+            return back()->with('error', 'Đã xảy ra lỗi không tìm thấy giảng viên.');
+        }    
     }
 }

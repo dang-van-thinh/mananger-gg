@@ -9,27 +9,20 @@ class TeacherRepository
     public function create($data){
        return Teacher::create($data);
     }
-    public function list(){
-        return Teacher::paginate(10);;
+    public function getAll(){
+        return Teacher::paginate(10);
     }
     public function delete($id){
-        $teacher = Teacher::find($id);
-        if ($teacher) {
-            $teacher->delete();
-            return true;
-        }
-        return false;
+        $teacher = Teacher::findOrFail($id);
+        $teacher->delete();
+        return true;
     }
-    public function find($id){
-        return Teacher::find($id);
+    public function findOrFail($id){
+        return Teacher::findOrFail($id);
     }
     public function update($id, $data){
-        $teacher = Teacher::find($id);
-        if ($teacher) {
-            $teacher->update($data);
-            return true;
-        }
-        return false;
+        $teacher = Teacher::findOrFail($id);
+        return $teacher->update($data); 
     }
     
 }
