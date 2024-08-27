@@ -27,7 +27,7 @@
             <!-- /#header -->
 
             <!-- Content -->
-            <main class="content">
+            <main class="content py-5" style="min-height : 80vh">
                 @yield('content')
             </main>
             <!-- /.content -->

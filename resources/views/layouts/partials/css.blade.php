@@ -1,7 +1,6 @@
 <link rel="apple-touch-icon" href="https://i.imgur.com/QRAUqs9.png">
 <link rel="shortcut icon" href="https://i.imgur.com/QRAUqs9.png">
-
-{{--file bootstrap 5 mới nhất--}}
+{{-- file bootstrap 5 mới nhất --}}
 <link rel="stylesheet" href="/template/assets/css/bootstrap5.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css">
@@ -14,6 +13,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.0/css/flag-icon.min.css">
 <link rel="stylesheet" href="/template/assets/css/cs-skin-elastic.css">
 <link rel="stylesheet" href="/template/assets/css/style.css">
+<link rel="stylesheet" href="/template/assets/css/custom.css">
 
 
 

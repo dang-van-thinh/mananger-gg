@@ -82,7 +82,7 @@
         <!-- /Widgets -->
         {{--         thêm nội dung vào đây --}}
 
-        tạo layout chung cho
+        {{-- tạo layout chung cho --}}
 
 
 
