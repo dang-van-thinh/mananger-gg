@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class DayOfWeek extends Model
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory;
     protected $table = 'day_of_weeks';
     protected $fillable = [
         'name',

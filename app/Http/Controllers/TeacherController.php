@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateTeacherRequest;
+use App\Http\Requests\UpdateTeacherRequest;
 use App\Http\Service\TeacherService;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class TeacherController extends Controller
 {
@@ -17,59 +19,57 @@ class TeacherController extends Controller
     }
 
 
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        return $this->teacherService->getAllTeachers();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
     public function create()
     {
-        //
+        return view('page.teacher.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(CreateTeacherRequest $request)
     {
-       $dataTeacher = $this->teacherService->createTeacher($request);
+        if($this->teacherService->createTeacher($request)){
+            return redirect()->route('teachers.create')->with('success', 'Thêm giảng viên thành công.');
+        }else{
+            return back()->with('messager', 'Thêm giảng viên thất bại.');
+        }         
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+
+    public function show($id)
     {
-        //
+        $teacher = $this->teacherService->findTeacher($id);
+        return response()->json($teacher);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+
+    public function edit($id)
     {
-        //
+        $teacher = $this->teacherService->findTeacher($id);
+        return view('page.teacher.update', compact('teacher'));
+        
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
+    public function update(UpdateTeacherRequest $request, $id)
+    {  
+        if ($this->teacherService->updateTeacher($request, $id)) {
+            return redirect()->route('teachers.index')->with('success', 'Sửa giảng viên thành công.');
+        } else {
+            return back()->with('error', 'Sửa giảng viên thất bại. Vui lòng thử lại.');
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        if( $this->teacherService->deleteTeacher($id)){
+            return redirect()->route('teachers.index')->with('success', 'Xóa giảng viên thành công.');
+        }else{
+            return back()->with('error', 'Đã xảy ra lỗi không tìm thấy giảng viên.');
+        }    
     }
 }
