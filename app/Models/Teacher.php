@@ -11,12 +11,15 @@ class Teacher extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'name',
+       'name',
+        'image',
         'email',
+        'phone',
+        'degree',
+        'address',
         'birth_day',
         'qualification',
         'hourly_rate',
-        'enrollment_date',
     ];
     public function payroll(){
         return $this->hasMany(Payroll::class);

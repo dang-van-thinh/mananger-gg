@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('title')
     Trang chủ
-@endsection
+@endsection 
 @section('content')
     <!-- Animated -->
     <div class="animated fadeIn">
@@ -81,10 +81,6 @@
         </div>
         <!-- /Widgets -->
         {{--         thêm nội dung vào đây --}}
-
-        tạo layout chung cho
-
-
 
     </div>
     <!-- .animated -->

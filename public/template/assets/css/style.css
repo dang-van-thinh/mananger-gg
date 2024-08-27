@@ -118,6 +118,8 @@ Googel Fonts  */
 .width-90 {
   width: 90px; }
 
+.width-100 {
+    width: 100px; }
 .height-15 {
   height: 15px; }
 
@@ -126,6 +128,8 @@ Googel Fonts  */
 
 .height-100 {
   height: 100px; }
+.height-600 {
+  height: 600px; }
 
 .inline-block {
   display: inline-block; }
