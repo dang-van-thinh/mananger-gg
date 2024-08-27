@@ -21,6 +21,23 @@
                         <li><i class="fa fa-list"></i><a href="{{route('teachers.index')}}">Danh sách giảng viên</a></li>
                     </ul>
                 </li>
+
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false"><i class="menu-icon fa fa-id-card"></i>QL Vai trò</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-list"></i><a href="{{ route('role.index') }}">Danh sách vai trò</a></li>
+                    </ul>
+                </li>
+
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false"><i class="menu-icon fa fa-user"></i>QL Người dùng</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-list"></i><a href="{{ route('user.index') }}">Danh sách người dùng</a></li>
+                    </ul>
+                </li>
+
             </ul>
         </div>
     </nav>
