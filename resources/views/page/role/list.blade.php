@@ -3,11 +3,6 @@
     Danh sách vai trò
 @endsection
 @section('content')
-    @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
@@ -21,8 +16,6 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Tên vai trò</th>
-                                <th scope="col">Ngày tạo</th>
-                                <th scope="col">Ngày cập nhật</th>
                                 <th scope="col">Thao tác</th>
                             </tr>
                         </thead>

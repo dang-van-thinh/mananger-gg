@@ -4,7 +4,9 @@ namespace App\Http\Service;
 
 use App\Http\Repository\UserRepository;
 use App\Http\Requests\StoreUserRequest;
-use App\Http\Requests\UpdateUserRequest;
+use App\Http\Requests\UpdateUserReques\t;
+use App\Http\Requests\user\StoreUserRequest as UserStoreUserRequest;
+use App\Http\Requests\user\UpdateUserRequest as UserUpdateUserRequest;
 use Illuminate\Support\Facades\Storage;
 
 class UserService
@@ -29,7 +31,7 @@ class UserService
     {
         return $this->userRepository->role();
     }
-    public function store(StoreUserRequest $request)
+    public function store(UserStoreUserRequest $request)
     {
         $data = $request->except('image');
 
@@ -40,7 +42,7 @@ class UserService
         return $this->userRepository->store($data);
     }
 
-    public function update($id, UpdateUserRequest $request)
+    public function update($id, UserUpdateUserRequest $request)
     {
         $data = $request->except('image');
         if ($request->hasFile('image')) {
