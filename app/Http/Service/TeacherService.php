@@ -66,7 +66,7 @@ class TeacherService
             if (Storage::exists($teacher->image)) {
                 Storage::delete($teacher->image);
             }
-            $data['image'] = Storage::put('public/teacher', $request->file('image'));
+            $data['image'] = Storage::put('teacher', $request->file('image'));
 
         } elseif (!$request->hasFile('image') && $teacher->image) {
             $data['image'] = $teacher->image;

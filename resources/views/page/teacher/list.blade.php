@@ -37,8 +37,8 @@
                     <th scope="row">{{ $loop->iteration }}</th>
                     <td>{{$value->name}}</td>
                     <td>
-                        <img class="width-100 height-100" src="{{'storage/'.$value->image}}" alt=""
-                        ></td>
+                        <img class="width-100 height-100" src="{{'/storage/'.$value->image}}" alt="">
+                    </td>
                     <td>{{$value->email}}</td>
                     <td>{{$value->phone}}</td>
                     <td>{{$value->birth_day}}</td>
@@ -82,7 +82,7 @@
         document.querySelector('input[name="phone"]').value = degree = button.getAttribute('data-bs-phone') ;
         document.querySelector('input[name="hourly_rate"]').value = degree = button.getAttribute('data-bs-hourly_rate') ;
         document.querySelector('input[name="address"]').value = degree = button.getAttribute('data-bs-address') ;
-        document.getElementById('teacherImage').src = '{{ Storage::url('') }}' + image;
+        document.getElementById('teacherImage').src = 'storage/' + image;
 
     });
 </script>

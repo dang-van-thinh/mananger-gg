@@ -13,19 +13,15 @@ class TeacherRepository
     public function getAll(){
         return Teacher::paginate(10);
     }
-    public function delete($id)
-    {
+    public function delete($id){
         $teacher = Teacher::findOrFail($id);
-    
         $imagePath = $teacher->image;
-    
         $teacher->delete();
-    
+
         if ($imagePath && Storage::exists($imagePath)) {
             Storage::delete($imagePath);
         }
-    
-        return response()->json(['success' => true]);
+        return true;
     }
     public function findOrFail($id){
         return Teacher::findOrFail($id);
