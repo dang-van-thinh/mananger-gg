@@ -3,8 +3,8 @@
 namespace App\Http\Service;
 
 use App\Http\Repository\TeacherRepository;
-use App\Http\Requests\CreateTeacherRequest;
-use App\Http\Requests\UpdateTeacherRequest;
+use App\Http\Requests\teacher\CreateTeacherRequest;
+use App\Http\Requests\teacher\UpdateTeacherRequest;
 use Illuminate\Support\Facades\Storage;
 class TeacherService
 {
