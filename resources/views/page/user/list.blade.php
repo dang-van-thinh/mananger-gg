@@ -3,11 +3,6 @@
     Danh sách người dùng
 @endsection
 @section('content')
-    @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
     <div class="card">
         <div class="card-header">
             <h4 class="card-title">Danh sách người dùng</h4>

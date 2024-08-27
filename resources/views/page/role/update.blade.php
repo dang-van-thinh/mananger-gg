@@ -14,11 +14,11 @@
                         @csrf
                         @method('PUT')
                         <div class="form-group">
-                            <label for="name" class="control-label mb-1">Tên vai trò *</label>
+                            <label for="name" class="control-label mb-1">Tên vai trò</label>
                             <input type="text" id="name" name="name" class="form-control"
                                 value="{{ $role->name }}">
                             @error('name')
-                                <p class="text-danger">{{ $message }}</p>
+                                <p class="text-danger badge">{{ $message }}</p>
                             @enderror
                         </div>
 
