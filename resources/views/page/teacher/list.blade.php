@@ -28,7 +28,7 @@
               <th scope="col">Địa chỉ</th>
               <th scope="col">Thông Tin Chuyên Môn</th>
               <th scope="col">Ngày Tham Gia</th>
-              <th width='170px' scope="col">Hành Động</th>
+              <th width='170px' scope="col">Thao Tác</th>
             </tr>
         </thead>
         <tbody>
