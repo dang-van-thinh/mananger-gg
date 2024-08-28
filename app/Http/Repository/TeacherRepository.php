@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Repository;
-use App\Http\Requests\CreateTeacherRequest;
 use App\Models\Teacher;
+use Illuminate\Support\Facades\Storage;
+
 
 class TeacherRepository
 {
@@ -14,7 +15,12 @@ class TeacherRepository
     }
     public function delete($id){
         $teacher = Teacher::findOrFail($id);
+        $imagePath = $teacher->image;
         $teacher->delete();
+
+        if ($imagePath && Storage::exists($imagePath)) {
+            Storage::delete($imagePath);
+        }
         return true;
     }
     public function findOrFail($id){

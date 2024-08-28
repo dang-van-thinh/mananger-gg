@@ -83,7 +83,7 @@
                 </div>
                 <div class="form-group">
                     <label class="form-control-label">Ảnh</label>
-                    <img class="width-100 height-100" src="{{ Storage::url($teacher->image) }}" alt="">
+                    <img class="width-100 height-100" src="{{('/storage/' . $teacher->image) }}" alt="">
                     <div class="input-group">
                         <div class="input-group-addon"><i class="fa fa-picture-o"></i></div>
                         <input class="form-control" type="file" name="image">

@@ -27,7 +27,7 @@ class UpdateTeacherRequest extends FormRequest
             'birth_day' => 'required|date|before_or_equal:today', 
             'qualification' => 'required|string|max:255',
             'hourly_rate' => 'required|numeric|min:0',
-            'phone' => 'required|string|regex:/^(\+?[\d\s\-]){7,15}$/|unique:teachers,phone',
+            'phone' => 'required|string|regex:/^(\+?[\d\s\-]){7,15}$/',
             'degree' => 'required|string|max:255',
             'address' => 'required|string|max:255',
         ];
@@ -48,7 +48,6 @@ class UpdateTeacherRequest extends FormRequest
             'hourly_rate.min' => 'Lương theo giờ không được nhỏ hơn 0.',
             'phone.required' => 'Không được bỏ trống số điện thoại.',
             'phone.regex' => 'Số điện thoại không hợp lệ.',
-            'phone.unique' => 'số điện thoại đã tồn tại.',
             'degree.required' => 'Không được bỏ trống bằng cấp.',
             'address.required' => 'Không được bỏ trống địa chỉ.',
         ];
