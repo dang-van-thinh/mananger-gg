@@ -16,7 +16,7 @@
                         <div class="form-group">
                             <label for="name" class="control-label mb-1">Tên vai trò</label>
                             <input type="text" id="name" name="name" class="form-control"
-                                value="{{ $role->name }}">
+                                value="{{ $role->name }}" placeholder="Nhập tên vai trò">
                             @error('name')
                                 <p class="text-danger badge">{{ $message }}</p>
                             @enderror

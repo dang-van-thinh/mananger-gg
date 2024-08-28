@@ -7,9 +7,9 @@
         <div class="card-header">
             <h4 class="card-title">Danh sách người dùng</h4>
         </div>
-        <div class="text-end mt-3 mx-2">
+        <div class="text-end mt-3 mx-3">
             <a href=""></a>
-            <a href="{{ route('user.create') }}" class="btn btn-success btn-sm">Thêm mới</a>
+            <a href="{{ route('user.create') }}" class="btn btn-success">Thêm mới</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -32,7 +32,8 @@
                                 <td class="serial">{{ $key + 1 }}</td>
                                 <td class="avatar">
                                     <div class="round-img">
-                                        <img class="rounded" src="{{ Storage::url($user->image) }}" alt="user image" width="50" height="50">
+                                        <img class="rounded" src="{{ '/Storage/' . $user->image }}" alt="user image"
+                                            width="50" height="50">
                                     </div>
                                 </td>
                                 <td><small>{{ $user->name }}</small></td>
@@ -49,7 +50,8 @@
                                 <td>
                                     <div class="d-flex">
                                         <div class="mr-1">
-                                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+                                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
+                                                data-target="#myModal">
                                                 <i class="fa fa-info-circle"></i>
                                             </button>
                                         </div>
@@ -62,19 +64,20 @@
                                             <form action="{{ route('user.destroy', $user->id) }}" method="post">
                                                 @method('DELETE')
                                                 @csrf
-                                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Có chắc chắn muốn xóa không?')">
+                                                <button type="submit" class="btn btn-danger btn-sm"
+                                                    onclick="return confirm('Có chắc chắn muốn xóa không?')">
                                                     <i class="fa fa-trash"></i>
                                                 </button>
                                             </form>
                                         </div>
                                     </div>
-                                </td>                                
+                                </td>
                             </tr>
                         @endforeach
-        
+
                     </tbody>
                 </table>
+                {{ $data->links() }}
             </div> <!-- /.table-responsive -->
         </div>
-        
     @endsection

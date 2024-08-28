@@ -18,10 +18,6 @@ class UserRepository
         return User::find($id);
     }
 
-    public function role()
-    {
-        return Role::pluck('name', 'id');
-    }
     public function store(array $data)
     {
         return User::create($data);

@@ -19,7 +19,7 @@ class UserController extends Controller
      */
     protected $userService;
     protected $roleService;
-    public function __construct(UserService $userService,RoleService $roleService )
+    public function __construct(UserService $userService, RoleService $roleService)
     {
         $this->userService = $userService;
         $this->roleService = $roleService;
@@ -27,7 +27,6 @@ class UserController extends Controller
     public function index()
     {
         $data = $this->userService->getAll();
-        // dd($data->toArray());
         return view('page.user.list', compact('data'));
     }
 
@@ -36,7 +35,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $data = $this->userService->role();
+        $data = $this->roleService->getAll();
         // dd($data);
         return view('page.user.create', compact('data'));
     }
@@ -46,8 +45,11 @@ class UserController extends Controller
      */
     public function store(UserStoreUserRequest $request)
     {
-        $this->userService->store($request);
-        return redirect()->route('user.index')->with('success', 'Thêm mới vai trò thành công');
+        if ($this->userService->store($request)) {
+            return redirect()->route('user.index')->with('success', 'Thêm mới vai trò thành công');
+        } else {
+            return back()->with('error', 'Thêm mới vai trò thất bại');
+        }
     }
 
 
@@ -56,7 +58,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-       return response()->json($user);
+        return response()->json($user);
     }
 
     /**
@@ -75,10 +77,11 @@ class UserController extends Controller
      */
     public function update(UserUpdateUserRequest $request, string $id)
     {
-        // dd($request->validated());
-        $this->userService->update($id, $request);
-
-        return redirect()->route('user.index')->with('success', 'Cập nhật người dùng thành công');
+        if ($this->userService->update($id, $request)) {
+            return redirect()->route('user.index')->with('success', 'Cập nhật người dùng thành công');
+        } else {
+            return back()->with('error', 'Cập nhật vai trò thất bại');
+        }
     }
 
     /**
