@@ -21,7 +21,7 @@
                         <th>Email</th>
                         <th width="150px">Ảnh</th>
                         <th>Số điện thoại</th>
-                        <th width="150px">Hành động</th>
+                        <th width="150px">Thao tác</th>
                     </tr>
                 </thead>
                 <tbody>

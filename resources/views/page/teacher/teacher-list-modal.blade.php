@@ -14,7 +14,7 @@ aria-hidden="true">
                             <div class="form-group">
                                 <label class="form-control-label">Ảnh</label>
                                 <div class="input-group justify-content-center">
-                                    <img id="teacherImage" src="" alt="Teacher Image" class="img-fluid  w-75 height-600 img-thumbnail rounded mx-auto d-block">
+                                    <img id="teacherImage" src="" alt="Teacher Image" class="img-fluid w-75 height-600 img-thumbnail rounded mx-auto d-block">
                                 </div>
                             </div>
                         </div>
