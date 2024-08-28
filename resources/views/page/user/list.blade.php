@@ -41,11 +41,14 @@
                                 <td><small>{{ $user->phone }}</small></td>
                                 <td><small>{{ $user->role->name }}</small></td>
                                 <td>
-                                    @if ($user->active == 1)
-                                        <span class="badge badge-success">Hoạt động</span>
-                                    @else
-                                        <span class="badge badge-secondary">Ngưng hoạt động</span>
-                                    @endif
+                                    <form action="{{ route('user.status', $user->id) }}" method="POST">
+                                        @csrf
+                                        <div class="form-check form-switch d-flex justify-content-center">
+                                            <input class="form-check-input" type="checkbox" id="switch-{{ $user->id }}"
+                                                name="active" {{ $user->active ? 'checked' : '' }}
+                                                onchange="this.form.submit()">
+                                        </div>
+                                    </form>
                                 </td>
                                 <td>
                                     <div class="d-flex">
