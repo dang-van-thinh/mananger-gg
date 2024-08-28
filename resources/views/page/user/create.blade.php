@@ -10,7 +10,7 @@
         <div class="card-body">
             <div>
                 <div class="card-body">
-                    <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data" >
+                    <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-lg-6">
@@ -18,8 +18,8 @@
                                     <label for="name" class="control-label mb-1">Họ và tên</label>
                                     <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                                        <input type="text" id="name" name="name" class="form-control" placeholder=""
-                                            value="{{  old('name') }}">
+                                        <input type="text" id="name" name="name" class="form-control"
+                                            value="{{ old('name') }}" placeholder="Nhập họ và tên của người dùng">
                                     </div>
                                     @error('name')
                                         <p class="text-danger badge">{{ $message }}</p>
@@ -27,7 +27,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="image" class="control-label mb-1">Ảnh </label>
+                                    <label for="image" class="control-label mb-1">Ảnh</label>
                                     <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-image"></i></div>
                                         <input type="file" id="image" name="image" class="form-control">
@@ -38,11 +38,11 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="email" class="control-label mb-1">Email *</label>
+                                    <label for="email" class="control-label mb-1">Email</label>
                                     <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
                                         <input type="email" id="email" name="email" class="form-control"
-                                            value="{{ old('email') }}">
+                                            value="{{ old('email') }}" placeholder="Nhập email của người dùng">
                                     </div>
                                     @error('email')
                                         <p class="text-danger badge">{{ $message }}</p>
@@ -56,7 +56,7 @@
                                     <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-phone"></i></div>
                                         <input type="text" id="phone" name="phone" class="form-control"
-                                            value="{{  old('phone') }}">
+                                            value="{{ old('phone') }}" placeholder="Nhập số điện thoại của người dùng">
                                     </div>
                                     @error('phone')
                                         <p class="text-danger badge">{{ $message }}</p>
@@ -68,7 +68,7 @@
                                     <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
                                         <input type="password" id="password" name="password" class="form-control"
-                                            value="{{ old('password') }}">
+                                            value="{{ old('password') }}" placeholder="Nhập mật khẩu của người dùng">
                                     </div>
                                     @error('password')
                                         <p class="text-danger badge">{{ $message }}</p>
@@ -80,8 +80,8 @@
                                     <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-id-card"></i></div>
                                         <select name="role_id" id="role_id" class="form-control">
-                                            @foreach ($data as $id => $name)
-                                                <option value="{{ $id }}">{{ $name }}</option>
+                                            @foreach ($data as $role)
+                                                <option value="{{ $role->id }}">{{ $role->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>

@@ -3,6 +3,8 @@
 namespace App\Http\Service;
 
 use App\Http\Repository\RoleRepository;
+use App\Http\Requests\role\StoreRoleRequest;
+use App\Http\Requests\role\UpdateRoleRequest;
 
 class RoleService
 {
@@ -21,13 +23,15 @@ class RoleService
     {
         return $this->roleRepository->find($id);
     }
-    public function create(array $data)
+    public function create(StoreRoleRequest $requsst)
     {
+        $data = $requsst->validated();
         return $this->roleRepository->create($data);
     }
 
-    public function update($id, array $data)
+    public function update($id, UpdateRoleRequest $requsst)
     {
+        $data = $requsst->validated();
         return $this->roleRepository->update($id, $data);
     }
 

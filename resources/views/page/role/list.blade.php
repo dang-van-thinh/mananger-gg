@@ -3,29 +3,32 @@
     Danh sách vai trò
 @endsection
 @section('content')
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-header d-flex justify-content-between align-items-center ">
-                    <strong class="card-title">Vai trò người dùng</strong>
-                    <a href="{{ route('role.create') }}" class="btn btn-success btn-sm">Thêm mới</a>
-                </div>
-                <div class="card-body">
-                    <table class="table">
-                        <thead>
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">Vai trò người dùng</h4>
+        </div>
+        <div class="text-end mt-3 mx-3">
+            <a href=""></a>
+            <a href="{{ route('role.create') }}" class="btn btn-success">Thêm mới</a>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="text-center">
+                            <th scope="col">#</th>
+                            <th scope="col">Tên vai trò</th>
+                            <th scope="col">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($data as $key => $role)
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Tên vai trò</th>
-                                <th scope="col">Thao tác</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($data as $key => $role)
-                                <tr>
-                                    <th scope="row">{{ $key + 1 }}</th>
-                                    <td>{{ $role->name }}</td>
-                                    <td class="d-flex">
-                                        <a href="{{ route('role.edit', $role->id) }}" class="btn btn-warning "><i
+                                <th scope="row" class="text-center">{{ $key + 1 }}</th>
+                                <td>{{ $role->name }}</td>
+                                <td>
+                                    <div class="d-flex justify-content-center"> <a
+                                            href="{{ route('role.edit', $role->id) }}" class="btn btn-warning "><i
                                                 class="fa fa-pencil-square-o"></i></a>
                                         <form action="{{ route('role.destroy', $role->id) }}" method="post">
                                             @method('DELETE')
@@ -34,17 +37,18 @@
                                                 onclick="confirm('Có chắc chắn muốn xóa không?')">
                                                 <i class="ti-trash"></i>
                                             </button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                                    </div>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
 
-                    {{ $data->links() }}
-                </div>
+                {{ $data->links() }}
             </div>
-
         </div>
+
     </div>
+
 @endsection

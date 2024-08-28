@@ -9,7 +9,7 @@ class RoleRepository
 
     public function all()
     {
-        return Role::paginate(5);
+        return Role::paginate(10);
     }
 
     public function find($id)
