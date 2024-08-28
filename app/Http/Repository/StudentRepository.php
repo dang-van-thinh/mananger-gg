@@ -2,8 +2,6 @@
 
 namespace App\Http\Repository;
 
-use App\Http\Requests\student\CreateStudentRequest;
-use App\Http\Requests\student\UpdateStudentRequest;
 use App\Models\Student;
 
 class StudentRepository

@@ -51,10 +51,7 @@ class StudentService
     {
         $student =  $this->studentRepository->findOne($studentId);
 
-        $image = $student->image;
-        $fullPath = "/public/" . $image;
-        Storage::delete($fullPath);
-
+        $student->image && Storage::exists($student->image) ? Storage::delete($student->image) : null;
         return $this->studentRepository->delete($student->id);
     }
 

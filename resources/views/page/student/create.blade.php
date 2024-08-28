@@ -13,7 +13,7 @@
                         <div class="mb-3">
                             <label for="name" class="form-label"> Họ và tên </label>
                             <input type="text" name="name" class="form-control" id="name"
-                                value="{{ old('name') }}" placeholder="Nhập họ và tên học viên">
+                                   value="{{ old('name') }}" placeholder="Nhập họ và tên học viên">
                             @if ($errors->has('name'))
                                 <div class="form-text badge text-danger">
                                     {{ $errors->first('name') }}
@@ -23,7 +23,7 @@
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
                             <input type="email" name="email" class="form-control" id="email"
-                                value="{{ old('email') }}" placeholder="Nhập email học viên ">
+                                   value="{{ old('email') }}" placeholder="Nhập email học viên ">
                             @if ($errors->has('email'))
                                 <div class="form-text badge text-danger">
                                     {{ $errors->first('email') }}
@@ -33,7 +33,7 @@
                         <div class="mb-3">
                             <label for="birth_day" class="form-label">Ngày sinh</label>
                             <input type="date" name="birth_day" class="form-control" value="{{ old('birth_day') }}"
-                                id="birth_day">
+                                   id="birth_day">
                             @if ($errors->has('birth_day'))
                                 <div class="form-text badge text-danger">
                                     {{ $errors->first('birth_day') }}
@@ -46,7 +46,7 @@
                         <div class="mb-3">
                             <label for="address" class="form-label">Địa chỉ</label>
                             <input type="text" name="address" class="form-control" id="address"
-                                value="{{ old('address') }}" placeholder="Nhập địa chỉ của học viên ">
+                                   value="{{ old('address') }}" placeholder="Nhập địa chỉ của học viên ">
                             @if ($errors->has('address'))
                                 <div class="form-text badge text-danger">
                                     {{ $errors->first('address') }}
@@ -56,7 +56,7 @@
                         <div class="mb-3">
                             <label for="phone" class="form-label">Số điện thoại</label>
                             <input type="text" name="phone" class="form-control" id="phone"
-                                value="{{ old('phone') }}" placeholder="Nhập số điện thoại của học viên ">
+                                   value="{{ old('phone') }}" placeholder="Nhập số điện thoại của học viên ">
                             @if ($errors->has('phone'))
                                 <div class="form-text badge text-danger">
                                     {{ $errors->first('phone') }}
