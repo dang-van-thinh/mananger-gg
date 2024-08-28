@@ -43,7 +43,7 @@ class StudentController extends Controller
         if (!$student) {
             return redirect()->back()->with('error', 'Thêm học viên thất bại !');
         }
-        return redirect()->route('students.create')->with('success', 'Thêm mới thành công !');
+        return redirect()->route('students.create')->with('success', 'Thêm mới học viên thành công !');
     }
 
     public function show(string $id)
