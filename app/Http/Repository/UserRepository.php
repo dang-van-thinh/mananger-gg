@@ -17,7 +17,10 @@ class UserRepository
     {
         return User::find($id);
     }
-
+    public function findOrFail($id)
+    {
+        return User::findOrFail($id);
+    }
     public function store(array $data)
     {
         return User::create($data);

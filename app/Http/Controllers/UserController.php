@@ -2,15 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreUserRequest;
-use App\Http\Requests\UpdateUserRequest;
-use App\Http\Requests\user\StoreUserRequest as UserStoreUserRequest;
-use App\Http\Requests\user\UpdateUserRequest as UserUpdateUserRequest;
+use App\Http\Requests\user\StoreUserRequest;
+use App\Http\Requests\user\UpdateUserRequest;
 use App\Http\Service\RoleService;
 use App\Http\Service\UserService;
 use App\Models\User;
-use Illuminate\Http\Request;
-use PhpParser\Node\Stmt\Return_;
 
 class UserController extends Controller
 {
@@ -43,7 +39,7 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(UserStoreUserRequest $request)
+    public function store(StoreUserRequest $request)
     {
         if ($this->userService->store($request)) {
             return redirect()->route('user.index')->with('success', 'Thêm mới vai trò thành công');
@@ -75,7 +71,7 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UserUpdateUserRequest $request, string $id)
+    public function update(UpdateUserRequest $request, string $id)
     {
         if ($this->userService->update($id, $request)) {
             return redirect()->route('user.index')->with('success', 'Cập nhật người dùng thành công');
@@ -92,5 +88,14 @@ class UserController extends Controller
         $this->userService->delete($id);
 
         return back()->with('success', 'Xóa người dùng thành công');
+    }
+    public function status($id)
+    {
+        if ($this->userService->status($id)) {
+            return redirect()->back()->with('success', 'chuyển đổi trạng thái người dùng thành công');
+        }else{
+            return back()->with('error', 'Chuyển đổi trạng thái người dùng thất bại');
+        }
+
     }
 }
