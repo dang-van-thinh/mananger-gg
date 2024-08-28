@@ -60,7 +60,14 @@ class UserService
         if ($user->image && Storage::exists($user->image)) {
             Storage::delete($user->image);
         }
-        
+
         return $this->userRepository->delete($id);
+    }
+    public function status($id) {
+        $user = $this->userRepository->findOrFail($id);
+        $user->active = !$user->active; 
+        $user->save();
+
+        return $user;
     }
 }

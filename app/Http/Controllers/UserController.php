@@ -89,4 +89,13 @@ class UserController extends Controller
 
         return back()->with('success', 'Xóa người dùng thành công');
     }
+    public function status($id)
+    {
+        if ($this->userService->status($id)) {
+            return redirect()->back()->with('success', 'chuyển đổi trạng thái người dùng thành công');
+        }else{
+            return back()->with('error', 'Chuyển đổi trạng thái người dùng thất bại');
+        }
+
+    }
 }
