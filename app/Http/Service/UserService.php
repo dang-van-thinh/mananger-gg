@@ -39,15 +39,28 @@ class UserService
     public function update($id, UpdateUserRequest $request)
     {
         $data = $request->except('image');
+        $user = $this->getById($id);
+
         if ($request->hasFile('image')) {
-            $data['image'] = Storage::put('users', $request->file('image'));
+            $newImagePath = Storage::put('users', $request->file('image'));
+
+            if ($user->image && Storage::exists($user->image)) {
+                Storage::delete($user->image);
+            }
+
+            $data['image'] = $newImagePath;
         }
-       
+
         return $this->userRepository->update($id, $data);
     }
 
     public function delete($id)
     {
+        $user = $this->getById($id);
+        if ($user->image && Storage::exists($user->image)) {
+            Storage::delete($user->image);
+        }
+        
         return $this->userRepository->delete($id);
     }
 }

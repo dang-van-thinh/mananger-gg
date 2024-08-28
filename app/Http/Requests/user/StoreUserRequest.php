@@ -25,7 +25,7 @@ class StoreUserRequest extends FormRequest
             'name'     => 'required|max:255',
             'image'    => 'required|image|mimes:jpg,jpeg,png,gif|max:2048',
             'email'    => 'required|max:255|email|unique:users,email,',
-            'password' => 'required',
+            'password' => 'required|min:6',
             'phone'    => 'required|string|max:15|min:10|regex:/^(\+?[\d\s\-]){7,15}$/|unique:users,phone,',
             'role_id'  => 'nullable',
         ];

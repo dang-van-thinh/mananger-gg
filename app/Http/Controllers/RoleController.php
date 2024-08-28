@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\role\StoreRoleRequest;
-use App\Http\Requests\role\UpdateRoleRequest as RoleUpdateRoleRequest;
+use App\Http\Requests\role\UpdateRoleRequest;
 use App\Http\Service\RoleService;
 
 class RoleController extends Controller
@@ -64,7 +64,7 @@ class RoleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(RoleUpdateRoleRequest $request, $id)
+    public function update(UpdateRoleRequest $request, $id)
     {
         if ( $this->roleService->update($id, $request)) {
             return redirect()->route('role.index')->with('success', 'Cập nhật vai trò thành công');
