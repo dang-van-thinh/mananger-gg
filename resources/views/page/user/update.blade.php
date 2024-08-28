@@ -20,7 +20,7 @@
                                     <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-user"></i></div>
                                         <input type="text" id="name" name="name" class="form-control"
-                                            value="{{ $user->name }}">
+                                            value="{{ $user->name }}" placeholder="Nhập họ và tên của người dùng">
                                     </div>
                                     @error('name')
                                         <p class="text-danger">{{ $message }}</p>
@@ -28,7 +28,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="image" class="control-label mb-1">Ảnh </label>
+                                    <label for="image" class="control-label mb-1">Ảnh</label>
                                     <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-image"></i></div>
                                         <input type="file" id="image" name="image" class="form-control">
@@ -36,15 +36,15 @@
                                     @error('image')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
-                                    <img src="{{ \Storage::url($user->image) }}" width="100px">
+                                    <img src="{{ '/Storage/' . $user->image }}" width="100px">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="email" class="control-label mb-1">Email *</label>
+                                    <label for="email" class="control-label mb-1">Email</label>
                                     <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
                                         <input type="email" id="email" name="email" class="form-control"
-                                            value="{{ $user->email }}">
+                                            value="{{ $user->email }}" placeholder="Nhập email của người dùng">
                                     </div>
                                     @error('email')
                                         <p class="text-danger">{{ $message }}</p>
@@ -58,7 +58,7 @@
                                     <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-phone"></i></div>
                                         <input type="text" id="phone" name="phone" class="form-control"
-                                            value="{{ $user->phone }}">
+                                            value="{{ $user->phone }}" placeholder="Nhập số điện thoại của người dùng">
                                     </div>
                                     @error('phone')
                                         <p class="text-danger">{{ $message }}</p>
@@ -70,7 +70,7 @@
                                     <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
                                         <input type="password" id="password" name="password" class="form-control"
-                                            value="{{ $user->password }}">
+                                            value="{{ $user->password }}" placeholder="Nhập mật khẩu của người dùng">
                                     </div>
                                     @error('password')
                                         <p class="text-danger">{{ $message }}</p>
@@ -82,8 +82,10 @@
                                     <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-id-card"></i></div>
                                         <select name="role_id" id="role_id" class="form-control">
-                                            @foreach ($role as $id => $name)
-                                                <option @if ($user->id) selected @endif value="{{ $id }}">{{ $name }}</option>
+                                            @foreach ($role as $role)
+                                                <option @if ($user->role_id == $role->id) selected @endif
+                                                    value="{{ $role->id }}">{{ $role->name }}</option>
+                                                </option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -94,8 +96,10 @@
                                     <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-caret-square-o-down"></i></div>
                                         <select name="active" id="active" class="form-control">
-                                            <option value="1" @if ($user->active == 1) selected @endif>Hoạt động</option>
-                                            <option value="0" @if ($user->active == 0) selected @endif>Ngưng hoạt động</option>
+                                            <option value="1" @if ($user->active == 1) selected @endif>Hoạt
+                                                động</option>
+                                            <option value="0" @if ($user->active == 0) selected @endif>Ngưng
+                                                hoạt động</option>
                                         </select>
                                     </div>
 

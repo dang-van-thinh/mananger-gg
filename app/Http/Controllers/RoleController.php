@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\role\StoreRoleRequest as RoleStoreRoleRequest;
-use App\Http\Requests\StoreRoleRequest;
-use App\Http\Requests\UpdateRoleRequest;
+use App\Http\Requests\role\StoreRoleRequest;
+use App\Http\Requests\role\UpdateRoleRequest as RoleUpdateRoleRequest;
 use App\Http\Service\RoleService;
-use App\Models\Role;
-use Illuminate\Http\Request;
 
 class RoleController extends Controller
 {
@@ -37,13 +34,13 @@ class RoleController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(RoleStoreRoleRequest $request)
+    public function store(StoreRoleRequest $request)
     {
-        // $data = $request->validated();
-        // Role::create($data);
-        $this->roleService->create($request->validated());
-
-        return redirect()->route('role.index')->with('success', 'Thêm mới vai trò thành công');
+        if ($this->roleService->create($request)) {
+            return redirect()->route('role.index')->with('success', 'Thêm mới vai trò thành công');
+        } else {
+            return back()->with('error', 'Thêm mới vai trò thất bại');
+        }
     }
 
     /**
@@ -60,18 +57,20 @@ class RoleController extends Controller
     public function edit($id)
     {
         $role = $this->roleService->getById($id);
-  
+
         return view('page.role.update', compact('role'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateRoleRequest $request, $id)
+    public function update(RoleUpdateRoleRequest $request, $id)
     {
-        $this->roleService->update($id, $request->validated());
-
-        return redirect()->route('role.index')->with('success', 'Cập nhật vai trò thành công');
+        if ( $this->roleService->update($id, $request)) {
+            return redirect()->route('role.index')->with('success', 'Cập nhật vai trò thành công');
+        }else{
+            return back()->with('Cập nhật', 'Thêm mới vai trò thất bại');
+        }
     }
 
     /**
