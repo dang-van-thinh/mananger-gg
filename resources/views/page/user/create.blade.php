@@ -33,7 +33,7 @@
                                         <input type="file" id="image" name="image" class="form-control">
                                     </div>
                                     @error('image')
-                                        <p class="text-danger">{{ $message }}</p>
+                                        <p class="text-danger badge">{{ $message }}</p>
                                     @enderror
                                 </div>
 
@@ -45,7 +45,7 @@
                                             value="{{ old('email') }}">
                                     </div>
                                     @error('email')
-                                        <p class="text-danger">{{ $message }}</p>
+                                        <p class="text-danger badge">{{ $message }}</p>
                                     @enderror
                                 </div>
                             </div>
@@ -59,7 +59,7 @@
                                             value="{{  old('phone') }}">
                                     </div>
                                     @error('phone')
-                                        <p class="text-danger">{{ $message }}</p>
+                                        <p class="text-danger badge">{{ $message }}</p>
                                     @enderror
                                 </div>
 
@@ -71,7 +71,7 @@
                                             value="{{ old('password') }}">
                                     </div>
                                     @error('password')
-                                        <p class="text-danger">{{ $message }}</p>
+                                        <p class="text-danger badge">{{ $message }}</p>
                                     @enderror
                                 </div>
 
