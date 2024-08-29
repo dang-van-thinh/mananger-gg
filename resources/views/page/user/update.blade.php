@@ -96,10 +96,8 @@
                                     <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-caret-square-o-down"></i></div>
                                         <select name="active" id="active" class="form-control">
-                                            <option value="1" @if ($user->active == 1) selected @endif>Hoạt
-                                                động</option>
-                                            <option value="0" @if ($user->active == 0) selected @endif>Ngưng
-                                                hoạt động</option>
+                                            <option value="1" @if ($user->active == 1) selected @endif>Kích hoạt</option>
+                                            <option value="0" @if ($user->active == 0) selected @endif>Vô hiệu</option>
                                         </select>
                                     </div>
 
