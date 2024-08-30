@@ -37,7 +37,7 @@ class RoleController extends Controller
     public function store(StoreRoleRequest $request)
     {
         if ($this->roleService->create($request)) {
-            return redirect()->route('role.index')->with('success', 'Thêm mới vai trò thành công');
+            return back()->with('success', 'Thêm mới vai trò thành công');
         } else {
             return back()->with('error', 'Thêm mới vai trò thất bại');
         }
