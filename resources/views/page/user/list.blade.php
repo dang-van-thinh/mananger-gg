@@ -95,11 +95,11 @@
 
             $.ajax({
                 url: "{{ route('user.status') }}",
-                method: 'POST',
+                method: 'PUT',
                 data: {
-                    _token: '{{ csrf_token() }}',
                     id: userId
                 },
+                dataType:'json',
                 success: function(response) {
                     if (response.success) {
                         alert('Cập nhật trạng thái thành công! Trạng thái mới: ' + (response.status ?
