@@ -85,6 +85,9 @@
                                             @endforeach
                                         </select>
                                     </div>
+                                    @error('role_id')
+                                        <p class="text-danger badge">{{ $message }}</p>
+                                    @enderror
                                 </div>
 
                             </div>

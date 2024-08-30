@@ -5,6 +5,7 @@ namespace App\Http\Service;
 use App\Http\Repository\UserRepository;
 use App\Http\Requests\user\StoreUserRequest;
 use App\Http\Requests\user\UpdateUserRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class UserService
@@ -63,9 +64,9 @@ class UserService
 
         return $this->userRepository->delete($id);
     }
-    public function status($id) {
-        $user = $this->userRepository->findOrFail($id);
-        $user->active = !$user->active; 
+    public function status(Request $request) {
+        $user = $this->userRepository->find($request->id);
+        $user->active = $user->active ? 0 : 1;
         $user->save();
 
         return $user;

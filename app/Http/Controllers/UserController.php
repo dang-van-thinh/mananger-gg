@@ -7,6 +7,7 @@ use App\Http\Requests\user\UpdateUserRequest;
 use App\Http\Service\RoleService;
 use App\Http\Service\UserService;
 use App\Models\User;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -42,7 +43,7 @@ class UserController extends Controller
     public function store(StoreUserRequest $request)
     {
         if ($this->userService->store($request)) {
-            return redirect()->route('user.index')->with('success', 'Thêm mới vai trò thành công');
+            return back()->with('success', 'Thêm mới vai trò thành công');
         } else {
             return back()->with('error', 'Thêm mới vai trò thất bại');
         }
@@ -89,13 +90,13 @@ class UserController extends Controller
 
         return back()->with('success', 'Xóa người dùng thành công');
     }
-    public function status($id)
+    public function status(Request $request)
     {
-        if ($this->userService->status($id)) {
-            return redirect()->back()->with('success', 'chuyển đổi trạng thái người dùng thành công');
-        }else{
-            return back()->with('error', 'Chuyển đổi trạng thái người dùng thất bại');
+        $user = $this->userService->status($request);
+        if($user){
+            return response()->json(['success' => true, 'status' => $user->active]);
         }
-
+        return response()->json(['success' => false, 'message' => 'User not found'], 404);
     }
+
 }

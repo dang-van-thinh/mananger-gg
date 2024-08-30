@@ -2,6 +2,7 @@
 @section('title')
     Danh sách người dùng
 @endsection
+
 @section('content')
     <div class="card">
         <div class="card-header">
@@ -41,20 +42,18 @@
                                 <td><small>{{ $user->phone }}</small></td>
                                 <td><small>{{ $user->role->name }}</small></td>
                                 <td>
-                                    <form action="{{ route('user.status', $user->id) }}" method="POST">
-                                        @csrf
-                                        <div class="form-check form-switch d-flex justify-content-center">
-                                            <input class="form-check-input" type="checkbox" id="switch-{{ $user->id }}"
-                                                name="active" {{ $user->active ? 'checked' : '' }}
-                                                onchange="this.form.submit()">
-                                        </div>
-                                    </form>
+                                    <div class="form-check form-switch d-flex justify-content-center">
+                                        <input class="form-check-input" type="checkbox" id="switch-{{ $user->id }}"
+                                            data-id="{{ $user->id }}" {{ $user->active ? 'checked' : '' }}
+                                            onchange="status(this)">
+
+                                    </div>
                                 </td>
                                 <td>
                                     <div class="d-flex">
                                         <div class="mr-1">
                                             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
-                                                data-target="#myModal">
+                                                data-target="#userDetailModal-{{ $user->id }}">
                                                 <i class="fa fa-info-circle"></i>
                                             </button>
                                         </div>
@@ -76,6 +75,8 @@
                                     </div>
                                 </td>
                             </tr>
+
+                            @include('page.user.show')
                         @endforeach
 
                     </tbody>
@@ -83,4 +84,34 @@
                 {{ $data->links() }}
             </div> <!-- /.table-responsive -->
         </div>
-    @endsection
+    </div>
+@endsection
+
+@push('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        function status(element) {
+            var userId = $(element).data('id');
+
+            $.ajax({
+                url: "{{ route('user.status') }}",
+                method: 'PUT',
+                data: {
+                    id: userId
+                },
+                dataType:'json',
+                success: function(response) {
+                    if (response.success) {
+                        alert('Cập nhật trạng thái thành công! Trạng thái mới: ' + (response.status ?
+                            'Kích hoạt' : 'Vô hiệu'));
+                    } else {
+                        alert('Cập nhật trạng thái thất bại: ' + response.message);
+                    }
+                },
+                error: function(xhr) {
+                    alert('Đã xảy ra lỗi: ' + xhr.responseText);
+                }
+            });
+        }
+    </script>
+@endpush

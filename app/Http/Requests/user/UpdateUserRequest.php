@@ -28,7 +28,7 @@ class UpdateUserRequest extends FormRequest
             'email'    => 'required|max:255|email|unique:users,email,' . $userID,
             'password' => 'required|min:6',
             'phone'    => 'required|string|min:10|max:15|regex:/^(\+?[\d\s\-]){7,15}$/|unique:users,phone,' . $userID,
-            'role_id'  => 'nullable',
+            'role_id'  => 'required',
             'active'   => 'nullable',
         ];
     }
@@ -55,7 +55,10 @@ class UpdateUserRequest extends FormRequest
             'phone.unique'      => 'Số điện thoại này đã được sử dụng.',
             'phone.min'         => 'Số điện thoại phải có ít nhất 10 số.',
             'phone.max'         => 'Số điện thoại không được vượt quá 15 số.',
-            'phone.regex'       => 'Số điện thoại không đúng định dạng.'
+            'phone.regex'       => 'Số điện thoại không đúng định dạng.',
+
+            'role_id.required'  =>'Cần bổ sung vai trò'
+
         ];
     }
 }

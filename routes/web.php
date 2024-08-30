@@ -17,4 +17,3 @@ Route::resource('user', UserController::class);
 Route::resource('students', StudentController::class);
 Route::resource('teachers', TeacherController::class);
 
-Route::post('/user/status/{id}', [UserController::class, 'status'])->name('user.status');
