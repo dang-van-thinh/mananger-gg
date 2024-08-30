@@ -14,7 +14,7 @@
                 <!-- Cột 1 -->
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label class=" form-control-label">Tên Giảng Viên</label>
+                        <label class=" form-control-label">Tên giảng viên</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-user"></i></div>
                             <input type="text" class="form-control" name="name" value="{{ old('name', $teacher->name ?? '')}}" placeholder="Nhập họ tên của giảng viên">
@@ -38,7 +38,7 @@
                         <small class="form-text text-danger badge">{{ $errors->first('birth_day') }}</small>
                     </div>
                     <div class="form-group">
-                        <label class=" form-control-label">Bằng Cấp</label>
+                        <label class=" form-control-label">Bằng cấp</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-graduation-cap"></i></div>
                             <input type="text" class="form-control" name="degree" value="{{ old('degree', $teacher->degree ?? '')}}" placeholder="Nhập bằng cấp của giảng viên">
@@ -50,7 +50,7 @@
                 <!-- Cột 2 -->
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label class=" form-control-label">Chuyên Môn</label>
+                        <label class=" form-control-label">Chuyên môn</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-book"></i></div>
                             <input type="text" class="form-control" name="qualification" value="{{ old('qualification', $teacher->qualification ?? '')}}" placeholder="Nhập chuyên môn của giảng viên">
@@ -58,7 +58,7 @@
                         <small class="form-text text-danger badge">{{ $errors->first('qualification') }}</small>
                     </div>
                     <div class="form-group">
-                        <label class=" form-control-label">Số Điện Thoại</label>
+                        <label class=" form-control-label">Số điện thoại</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-phone"></i></div>
                             <input type="text" class="form-control" name="phone" value="{{ old('phone', $teacher->phone ?? '')}}" placeholder="Nhập số điện thoại của giảng viên">
@@ -66,7 +66,7 @@
                         <small class="form-text text-danger badge">{{ $errors->first('phone') }}</small>
                     </div>
                     <div class="form-group">
-                        <label class=" form-control-label">Lương Theo Giờ</label>
+                        <label class=" form-control-label">Lương theo giờ</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-usd"></i></div>
                             <input type="text" class="form-control" name="hourly_rate" value="{{ old('hourly_rate', $teacher->hourly_rate ?? '')}}" placeholder="Nhập lương cho giảng viên">
@@ -74,7 +74,7 @@
                         <small class="form-text text-danger badge">{{ $errors->first('hourly_rate') }}</small>
                     </div>
                     <div class="form-group">
-                        <label class=" form-control-label">Địa Chỉ</label>
+                        <label class=" form-control-label">Địa chỉ</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-map-marker"></i></div>
                             <input type="text" class="form-control" name="address" value="{{ old('address', $teacher->address ?? '')}}" placeholder="Nhập địa chỉ của giảng viên">
