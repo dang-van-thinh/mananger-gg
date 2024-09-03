@@ -10,6 +10,7 @@ use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\UserController;
 
 use App\Http\Controllers\RoomController;
+use App\Http\Controllers\SessionController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -20,3 +21,4 @@ Route::resource('user', UserController::class);
 Route::resource('students', StudentController::class);
 Route::resource('teachers', TeacherController::class);
 Route::resource('rooms', RoomController::class);
+Route::resource('sessions', SessionController::class);

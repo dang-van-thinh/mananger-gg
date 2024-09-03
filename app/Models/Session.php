@@ -4,11 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Session extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
+    protected $table = 'sessions';
     protected $fillable = [
         'name',
         'start_time',
@@ -18,4 +18,5 @@ class Session extends Model
     public function classes(){
         return $this->hasMany(Classes::class);
     }
+    public $timestamps = false;
 }
