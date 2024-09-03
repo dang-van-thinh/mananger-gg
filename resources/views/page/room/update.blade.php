@@ -1,11 +1,11 @@
 @extends('layouts.master')
 @section('title')
-    Thêm mới phòng học
+    Sửa phòng học
 @endsection
 @section('content')
 <div class="card">
     <div class="card-header">
-        <strong>Thêm mới phòng học</strong>
+        <strong>Sửa phòng học</strong>
     </div>
     <div class="card-body card-block">
         <form action="{{route('rooms.update', $room->id)}}" method="post" >

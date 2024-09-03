@@ -71,7 +71,7 @@
 <script>
     var detailModel = document.getElementById('detailModel');
     detailModel.addEventListener('show.bs.modal', function (event) {
-        var button = document.getElementById('myButton');
+        var button = event.relatedTarget; 
         var image = button.getAttribute('data-bs-image');
         document.querySelector('input[name="name"]').value =  button.getAttribute('data-bs-name') ;
         document.querySelector('input[name="email"]').value = button.getAttribute('data-bs-email') ;

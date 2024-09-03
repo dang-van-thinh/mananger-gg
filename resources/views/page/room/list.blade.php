@@ -1,13 +1,13 @@
 @extends('layouts.master')
 @section('title')
-    Danh sách giảng viên
+    Danh sách phòng học
 @endsection
 @section('content')
 <div class="card">
 
 <div class="card-header">
     <div>
-        <h3 class="d-flex-inline">Danh sách giảng viên</h3>
+        <h3 class="d-flex-inline">Danh sách phòng học</h3>
     </div>
 </div>
 <div class="d-flex justify-content-end mt-3 me-3">
@@ -60,7 +60,7 @@
 <script>
      var detailModel = document.getElementById('detailModel');
      detailModel.addEventListener('show.bs.modal', function (event) {
-        var button = document.getElementById('myButton');
+        var button = event.relatedTarget; 
         document.querySelector('input[name="name"]').value =  button.getAttribute('data-name') ;
         document.querySelector('input[name="capacity"]').value = button.getAttribute('data-capacity') ;
         document.querySelector('input[name="location"]').value = button.getAttribute('data-location') ;
