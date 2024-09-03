@@ -38,6 +38,14 @@
                     </ul>
                 </li>
 
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false"><i class="menu-icon fa fa-building"></i>QL Phòng học</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-list"></i><a href="{{ route('rooms.index') }}">Danh sách phòng học</a></li>
+                    </ul>
+                </li>
+
             </ul>
         </div>
     </nav>

@@ -8,6 +8,9 @@ use App\Http\Controllers\StudentController;
 
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\UserController;
+
+use App\Http\Controllers\RoomController;
+
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',[DashboardController::class,'dashboard'])->name('dashboard');
@@ -16,4 +19,4 @@ Route::resource('role', RoleController::class);
 Route::resource('user', UserController::class);
 Route::resource('students', StudentController::class);
 Route::resource('teachers', TeacherController::class);
-
+Route::resource('rooms', RoomController::class);
