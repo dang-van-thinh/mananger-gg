@@ -13,7 +13,7 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-sm-5 overflow-hidden d-flex justify-content-center align-items-center">
-                            <img src="{{ \Storage::url($user->image) }}" class="img-thumbnail w-100" alt="Cinque Terre">
+                            <img src="{{ '/Storage/' . $user->image }}" class="img-thumbnail w-100" alt="Cinque Terre">
                         </div>                        
                         <div class="col-sm-7">
                             <form action="">
