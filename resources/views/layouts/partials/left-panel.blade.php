@@ -51,6 +51,9 @@
                         aria-expanded="false"><i class="menu-icon fa fa-clock-o"></i>QL ca học</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="fa fa-list"></i><a href="{{ route('sessions.index') }}">Danh sách ca học</a></li>
+                    </ul>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false"><i class="menu-icon fa fa-money"></i>QL Chi phí khác</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="fa fa-list"></i><a href="{{ route('expense.index') }}">Danh sách chi phí khác</a></li>
