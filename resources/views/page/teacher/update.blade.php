@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label class="form-control-label">Tên Giảng Viên</label>
+                        <label class="form-control-label">Tên giảng viên</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-user"></i></div>
                             <input type="text" class="form-control" name="name" value="{{$teacher->name}}">
@@ -38,7 +38,7 @@
                         <small class="form-text text-danger badge">{{ $errors->first('birth_day') }}</small>
                     </div>
                     <div class="form-group">
-                        <label class="form-control-label">Bằng Cấp</label>
+                        <label class="form-control-label">Bằng cấp</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-graduation-cap"></i></div>
                             <input type="text" class="form-control" name="degree" value="{{$teacher->degree}}">
@@ -49,7 +49,7 @@
                 
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label class="form-control-label">Chuyên Môn</label>
+                        <label class="form-control-label">Chuyên môn</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-book"></i></div>
                             <input type="text" class="form-control" name="qualification" value="{{$teacher->qualification}}">
@@ -57,7 +57,7 @@
                         <small class="form-text text-danger badge">{{ $errors->first('qualification') }}</small>
                     </div>
                     <div class="form-group">
-                        <label class="form-control-label">Số Điện Thoại</label>
+                        <label class="form-control-label">Số điện thoại</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-phone"></i></div>
                             <input type="text" class="form-control" name="phone" value="{{$teacher->phone}}">
@@ -65,7 +65,7 @@
                         <small class="form-text text-danger badge">{{ $errors->first('phone') }}</small>
                     </div>
                     <div class="form-group">
-                        <label class="form-control-label">Lương Theo Giờ</label>
+                        <label class="form-control-label">Lương theo giờ</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-usd"></i></div>
                             <input type="text" class="form-control" name="hourly_rate" value="{{$teacher->hourly_rate}}">
@@ -73,7 +73,7 @@
                         <small class="form-text text-danger badge">{{ $errors->first('hourly_rate') }}</small>
                     </div>
                     <div class="form-group">
-                        <label class="form-control-label">Địa Chỉ</label>
+                        <label class="form-control-label">Địa chỉ</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-map-marker"></i></div>
                             <input type="text" class="form-control" name="address" value="{{$teacher->address}}">
@@ -83,7 +83,7 @@
                 </div>
                 <div class="form-group">
                     <label class="form-control-label">Ảnh</label>
-                    <img class="width-100 height-100" src="{{('/storage/' . $teacher->image) }}" alt="">
+                    <img class="width-100 height-100 " src="{{('/storage/' . $teacher->image) }}" alt="">
                     <div class="input-group">
                         <div class="input-group-addon"><i class="fa fa-picture-o"></i></div>
                         <input class="form-control" type="file" name="image">

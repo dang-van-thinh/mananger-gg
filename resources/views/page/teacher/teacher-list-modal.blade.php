@@ -20,7 +20,7 @@ aria-hidden="true">
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label class="form-control-label">Tên Giảng Viên</label>
+                                <label class="form-control-label">Tên giảng viên</label>
                                 <div class="input-group">
                                     <div class="input-group-addon"><i class="fa fa-user"></i></div>
                                     <input type="text" class="form-control" name="name" readonly>
@@ -41,35 +41,35 @@ aria-hidden="true">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="form-control-label">Bằng Cấp</label>
+                                <label class="form-control-label">Bằng cấp</label>
                                 <div class="input-group">
                                     <div class="input-group-addon"><i class="fa fa-graduation-cap"></i></div>
                                     <input type="text" class="form-control" name="degree" readonly>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="form-control-label">Chuyên Môn</label>
+                                <label class="form-control-label">Chuyên môn</label>
                                 <div class="input-group">
                                     <div class="input-group-addon"><i class="fa fa-book"></i></div>
                                     <input type="text" class="form-control" name="qualification" readonly>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="form-control-label">Số Điện Thoại</label>
+                                <label class="form-control-label">Số điện thoại</label>
                                 <div class="input-group">
                                     <div class="input-group-addon"><i class="fa fa-phone"></i></div>
                                     <input type="text" class="form-control" name="phone" readonly>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="form-control-label">Lương Theo Giờ</label>
+                                <label class="form-control-label">Lương theo giờ</label>
                                 <div class="input-group">
                                     <div class="input-group-addon"><i class="fa fa-usd"></i></div>
                                     <input type="text" class="form-control" name="hourly_rate" readonly>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="form-control-label">Địa Chỉ</label>
+                                <label class="form-control-label">Địa chỉ</label>
                                 <div class="input-group">
                                     <div class="input-group-addon"><i class="fa fa-map-marker"></i></div>
                                     <input type="text" class="form-control" name="address" readonly>

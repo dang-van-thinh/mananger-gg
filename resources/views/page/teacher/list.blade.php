@@ -20,15 +20,15 @@
         <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">Họ Tên</th>
-              <th scope="col">Hình Ảnh</th>
+              <th scope="col">Họ tên</th>
+              <th scope="col">Hình ảnh</th>
               <th scope="col">Email</th>
-              <th scope="col">Số Điện Thoại</th>
-              <th scope="col">Ngày Sinh</th>
+              <th scope="col">Số điện thoại</th>
+              <th scope="col">Ngày sinh</th>
               <th scope="col">Địa chỉ</th>
-              <th scope="col">Thông Tin Chuyên Môn</th>
-              <th scope="col">Ngày Tham Gia</th>
-              <th width='170px' scope="col">Thao Tác</th>
+              <th scope="col">Thông tin chuyên môn</th>
+              <th scope="col">Ngày tham gia</th>
+              <th width='170px' scope="col">Thao tác</th>
             </tr>
         </thead>
         <tbody>
@@ -37,7 +37,7 @@
                     <th scope="row">{{ $loop->iteration }}</th>
                     <td>{{$value->name}}</td>
                     <td>
-                        <img class="width-100 height-100" src="{{'/storage/'.$value->image}}" alt="">
+                        <img class="width-100 height-100 rounded mx-auto d-block" src="{{'/storage/'.$value->image}}" alt="">
                     </td>
                     <td>{{$value->email}}</td>
                     <td>{{$value->phone}}</td>
@@ -56,7 +56,7 @@
                         <a class="btn btn-warning"  href="{{route('teachers.edit',$value->id)}}">
                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                         </a>
-                        <a class="btn btn-info" href="#" data-bs-toggle="modal" data-bs-target="#detailModel" data-bs-name="{{$value->name}}"  data-bs-email="{{$value->email}}"  data-bs-phone="{{$value->phone}}"  data-bs-birth_day="{{$value->birth_day}}" data-bs-address="{{$value->address}}" data-bs-qualification="{{$value->qualification}}" data-bs-enrollment_date="{{$value->enrollment_date}}" data-bs-hourly_rate="{{$value->hourly_rate}}"  data-bs-degree="{{$value->degree}}" data-bs-image="{{$value->image}}"> 
+                        <a class="btn btn-info" href="#" data-bs-toggle="modal" data-bs-target="#detailModel" data-bs-name="{{$value->name}}"  data-bs-email="{{$value->email}}"  data-bs-phone="{{$value->phone}}"  data-bs-birth_day="{{$value->birth_day}}" data-bs-address="{{$value->address}}" data-bs-qualification="{{$value->qualification}}" data-bs-enrollment_date="{{$value->enrollment_date}}" data-bs-hourly_rate="{{$value->hourly_rate}}"  data-bs-degree="{{$value->degree}}" data-bs-image="{{$value->image}}" id="myButton"> 
                             <i class="fa fa-info-circle" aria-hidden="true"></i>
                         </a>
                     </td>
@@ -71,9 +71,8 @@
 <script>
     var detailModel = document.getElementById('detailModel');
     detailModel.addEventListener('show.bs.modal', function (event) {
-        var button = event.relatedTarget;
+        var button = event.relatedTarget; 
         var image = button.getAttribute('data-bs-image');
-
         document.querySelector('input[name="name"]').value =  button.getAttribute('data-bs-name') ;
         document.querySelector('input[name="email"]').value = button.getAttribute('data-bs-email') ;
         document.querySelector('input[name="birth_day"]').value = button.getAttribute('data-bs-birth_day') ;
