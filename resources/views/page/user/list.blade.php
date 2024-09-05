@@ -8,13 +8,13 @@
         <div class="card-header">
             <h4 class="card-title">Danh sách người dùng</h4>
         </div>
-        <div class="text-end mt-3 mx-3">
+        <div class="mx-3 mt-3 text-end">
             <a href=""></a>
             <a href="{{ route('user.create') }}" class="btn btn-success">Thêm mới</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered">
+                <table class="table-bordered table">
                     <thead>
                         <tr>
                             <th class="serial">#</th>
@@ -99,7 +99,7 @@
                 data: {
                     id: userId
                 },
-                dataType:'json',
+                dataType: 'json',
                 success: function(response) {
                     if (response.success) {
                         alert('Cập nhật trạng thái thành công! Trạng thái mới: ' + (response.status ?
