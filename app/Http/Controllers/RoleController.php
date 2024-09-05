@@ -69,7 +69,7 @@ class RoleController extends Controller
         if ( $this->roleService->update($id, $request)) {
             return redirect()->route('role.index')->with('success', 'Cập nhật vai trò thành công');
         }else{
-            return back()->with('Cập nhật', 'Thêm mới vai trò thất bại');
+            return back()->with('Cập nhật', 'Cập nhật vai trò thất bại');
         }
     }
 
