@@ -1,6 +1,6 @@
 
-<div class="modal fade" id="detailModel" tabindex="-1" aria-labelledby="detailModelLabel"
-aria-hidden="true">
+<div class="modal fade" id="sessionDetailModal-{{ $value->id }}" tabindex="-1" role="dialog"
+    aria-labelledby="sessionDetailModalLabel" aria-hidden="true">
     <div class="modal-dialog ">
         <div class="modal-content">
             <div class="modal-header">
@@ -14,21 +14,21 @@ aria-hidden="true">
                             <label class="form-control-label">Tên ca học học</label>
                             <div class="input-group">
                                 <div class="input-group-addon"><i class="fa fa-tag"></i></div>
-                                <input type="text" class="form-control" name="name" readonly>
+                                <input type="text" class="form-control" name="name" value="{{$value->name}}" readonly>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="form-control-label">Giờ bắt đầu</label>
                             <div class="input-group">
                                 <div class="input-group-addon"><i class="fa fa-clock-o"></i></div>
-                                <input type="text" class="form-control" name="start_time" readonly>
+                                <input type="text" class="form-control" name="start_time"  value="{{$value->start_time}}" readonly>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="form-control-label">Giờ kết thúc</label>
                             <div class="input-group">
                                 <div class="input-group-addon"><i class="fa fa-clock-o"></i></div>
-                                <input type="text" class="form-control" name="end_time" readonly>
+                                <input type="text" class="form-control" name="end_time" value="{{$value->end_time}}" readonly>
                             </div>
                         </div>
                     </div>
@@ -36,7 +36,7 @@ aria-hidden="true">
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
             </div>
         </div>
     </div>

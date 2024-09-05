@@ -94,7 +94,7 @@
             <a class="btn btn-warning"  href="{{route('teachers.index')}}">
                 Quay lại
             </a>
-            <button type="submit" class="btn btn-primary">Sửa</button>
+            <button type="submit" class="btn btn-success ">Lưu thay đổi</button>    
 
         </form>
     </div>

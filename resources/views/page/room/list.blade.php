@@ -45,25 +45,17 @@
                         <a class="btn btn-warning"  href="{{route('rooms.edit',$value->id)}}">
                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                         </a>
-                        <a class="btn btn-info" href="#"  data-name="{{$value->name}}"  data-capacity="{{$value->capacity}}"  data-location="{{$value->location}}" data-bs-toggle="modal" data-bs-target="#detailModel" id="myButton"> 
-                            <i class="fa fa-info-circle" aria-hidden="true"></i>
-                        </a>
+                         <button type="button" class="btn btn-info" data-toggle="modal" 
+                            data-target="#roomDetailModal-{{ $value->id }}">
+                            <i class="fa fa-info-circle"></i>
+                        </button>
                     </td>
                 </tr>
+                @include('page.room.show')
             @endforeach
         </tbody>
     </table>
     {{$listRoom->links()}}
-    @include('page.room.room-list-modal')
 @endsection
 @push('scripts') 
-<script>
-     var detailModel = document.getElementById('detailModel');
-     detailModel.addEventListener('show.bs.modal', function (event) {
-        var button = event.relatedTarget; 
-        document.querySelector('input[name="name"]').value =  button.getAttribute('data-name') ;
-        document.querySelector('input[name="capacity"]').value = button.getAttribute('data-capacity') ;
-        document.querySelector('input[name="location"]').value = button.getAttribute('data-location') ;
-     })
-</script>
 @endpush
