@@ -40,7 +40,7 @@
             <a class="btn btn-warning"  href="{{route('rooms.index')}}">
                 Quay lại
             </a>
-            <button type="submit" class="btn btn-primary">Sửa</button>
+            <button type="submit" class="btn btn-success ">Lưu thay đổi</button>
             
         </form>
     </div>

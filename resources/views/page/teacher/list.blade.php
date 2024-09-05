@@ -56,33 +56,18 @@
                         <a class="btn btn-warning"  href="{{route('teachers.edit',$value->id)}}">
                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                         </a>
-                        <a class="btn btn-info" href="#" data-bs-toggle="modal" data-bs-target="#detailModel" data-bs-name="{{$value->name}}"  data-bs-email="{{$value->email}}"  data-bs-phone="{{$value->phone}}"  data-bs-birth_day="{{$value->birth_day}}" data-bs-address="{{$value->address}}" data-bs-qualification="{{$value->qualification}}" data-bs-enrollment_date="{{$value->enrollment_date}}" data-bs-hourly_rate="{{$value->hourly_rate}}"  data-bs-degree="{{$value->degree}}" data-bs-image="{{$value->image}}" id="myButton"> 
-                            <i class="fa fa-info-circle" aria-hidden="true"></i>
-                        </a>
+                        <button type="button" class="btn btn-info" data-toggle="modal" 
+                        data-target="#teacherDetailModal-{{ $value->id }}">
+                        <i class="fa fa-info-circle"></i>
+                    </button>
                     </td>
                 </tr>
+                @include('page.teacher.show')
             @endforeach
         </tbody>
     </table>
     {{$listTeacher->links()}}
-@include('page.teacher.teacher-list-modal')
+
 @endsection
 @push('scripts') 
-<script>
-    var detailModel = document.getElementById('detailModel');
-    detailModel.addEventListener('show.bs.modal', function (event) {
-        var button = event.relatedTarget; 
-        var image = button.getAttribute('data-bs-image');
-        document.querySelector('input[name="name"]').value =  button.getAttribute('data-bs-name') ;
-        document.querySelector('input[name="email"]').value = button.getAttribute('data-bs-email') ;
-        document.querySelector('input[name="birth_day"]').value = button.getAttribute('data-bs-birth_day') ;
-        document.querySelector('input[name="degree"]').value = degree = button.getAttribute('data-bs-degree') ;
-        document.querySelector('input[name="qualification"]').value = degree = button.getAttribute('data-bs-qualification');
-        document.querySelector('input[name="phone"]').value = degree = button.getAttribute('data-bs-phone') ;
-        document.querySelector('input[name="hourly_rate"]').value = degree = button.getAttribute('data-bs-hourly_rate') ;
-        document.querySelector('input[name="address"]').value = degree = button.getAttribute('data-bs-address') ;
-        document.getElementById('teacherImage').src = 'storage/' + image;
-
-    });
-</script>
 @endpush

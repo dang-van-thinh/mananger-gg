@@ -45,26 +45,19 @@
                         <a class="btn btn-warning"  href="{{route('sessions.edit',$value->id)}}">
                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                         </a>
-                        <a class="btn btn-info" href="#"  data-name="{{$value->name}}"  data-start-time="{{date('H:i', strtotime($value->start_time))}}"  data-end-time="{{date('H:i', strtotime($value->end_time))}}" data-bs-toggle="modal" data-bs-target="#detailModel" id="myButton"> 
-                            <i class="fa fa-info-circle" aria-hidden="true"></i>
-                        </a>
+                        <button type="button" class="btn btn-info" data-toggle="modal" 
+                            data-target="#sessionDetailModal-{{ $value->id }}">
+                            <i class="fa fa-info-circle"></i>
+                        </button>
                     </td>
                 </tr>
+                @include('page.session.show')
             @endforeach
         </tbody>
     </table>
     {{$listSession->links()}}
-    @include('page.session.session-list-modal')
+ 
 
 @endsection
 @push('scripts') 
-<script>
-    var detailModel = document.getElementById('detailModel');
-    detailModel.addEventListener('show.bs.modal', function (event) {
-        var button = event.relatedTarget; 
-       document.querySelector('input[name="name"]').value =  button.getAttribute('data-name') ;
-       document.querySelector('input[name="start_time"]').value = button.getAttribute('data-start-time') ;
-       document.querySelector('input[name="end_time"]').value = button.getAttribute('data-end-time') ;
-    })
-</script>
 @endpush

@@ -1,6 +1,6 @@
 
-<div class="modal fade" id="detailModel" tabindex="-1" aria-labelledby="detailModelLabel"
-aria-hidden="true">
+<div class="modal fade" id="roomDetailModal-{{ $value->id }}" tabindex="-1" role="dialog"
+    aria-labelledby="roomDetailModalLabel" aria-hidden="true">
     <div class="modal-dialog ">
         <div class="modal-content">
             <div class="modal-header">
@@ -14,21 +14,21 @@ aria-hidden="true">
                             <label class="form-control-label">Tên phòng học</label>
                             <div class="input-group">
                                 <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                                <input type="text" class="form-control" name="name" readonly>
+                                <input type="text" class="form-control" name="name" value="{{ $value->name }}" readonly>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="form-control-label">Sức chứa phòng học</label>
                             <div class="input-group">
                                 <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                                <input type="text" class="form-control" name="capacity" readonly>
+                                <input type="text" class="form-control" name="capacity" value="{{ $value->capacity }}" readonly>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="form-control-label">Mô tả vị trí phòng học</label>
                             <div class="input-group">
                                 <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                                <input type="text" class="form-control" name="location" readonly>
+                                <input type="text" class="form-control" name="location" value="{{ $value->location }}" readonly>
                             </div>
                         </div>
                     </div>
@@ -36,7 +36,7 @@ aria-hidden="true">
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
             </div>
         </div>
     </div>
