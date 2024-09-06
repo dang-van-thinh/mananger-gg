@@ -8,7 +8,7 @@
             <h3 class="fs-4">Danh sách học viên</h3>
         </div>
         <div class="d-flex justify-content-end mx-3 mt-4">
-            <a href="{{ route('students.create') }}" class="btn btn-success px-4 me-2">
+            <a href="{{ route('students.create') }}" class="btn btn-success me-2 px-4">
                 Thêm mới
             </a>
         </div>
@@ -27,11 +27,12 @@
                 <tbody>
                     @foreach ($students as $key => $student)
                         <tr>
-                            <th>{{ $key+ '1' }} </th>
+                            <th>{{ $key + '1' }} </th>
                             <th> {{ $student->name }} </th>
                             <td>{{ $student->email }}</td>
                             <td>
-                                <img src="{{ '/storage/' . $student->image }}"alt="" width="100px" height="100px" class="rounded mx-auto d-block">
+                                <img src="{{ '/storage/' . $student->image }}"alt="" width="100px" height="100px"
+                                    class="d-block mx-auto rounded">
                             </td>
                             <td>{{ $student->phone }}</td>
                             <td class="d-flex">
@@ -39,29 +40,32 @@
                                     <form action="{{ route('students.destroy', $student->id) }}" method="post">
                                         @csrf
                                         @method('delete')
-                                        <button class="btn btn-danger" onclick="return confirm('Bạn có chắc muốn xóa học viên này ?')">
+                                        <button class="btn btn-danger"
+                                            onclick="return confirm('Bạn có chắc muốn xóa học viên này ?')">
                                             <i class="fa fa-trash" aria-hidden="true"></i>
                                         </button>
                                     </form>
                                 </div>
                                 <div class="me-2">
-                                    <a href="{{route('students.edit',$student->id)}}" class="btn btn-warning">
+                                    <a href="{{ route('students.edit', $student->id) }}" class="btn btn-warning">
                                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                     </a>
                                 </div>
                                 <div>
-                                    <button class="btn btn-info">
-                                        <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                                        data-target="#studentDetailModal-{{ $student->id }}">
+                                        <i class="fa fa-info-circle"></i>
                                     </button>
                                 </div>
                             </td>
                         </tr>
+                        @include('page.student.show')
                     @endforeach
 
                 </tbody>
             </table>
 
-            {{$students->links()}}
+            {{ $students->links() }}
         </div>
     </div>
 @endsection

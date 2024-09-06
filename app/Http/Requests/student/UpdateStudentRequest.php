@@ -25,23 +25,28 @@ class UpdateStudentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
-            'email' => 'required|email',
+            'name' => 'required|max:100',
+            'email' => 'required|email|max:100',
             'birth_day' => 'required',
-            'address' => 'required',
-            'phone' => 'required|numeric'
+            'address' => 'required|max:255',
+            'phone' => 'required|numeric|max:14'
         ];
     }
     public function messages()
     {
         return [
             'name.required' => $this->errors['required'],
+            'name.max' => 'Tên học viên tối đa có 100 ký tự !',
             'email.required' => $this->errors['required'],
+            'email.max' => 'Email học viên tối đa có 100 ký tự !',
             'email.email' => 'Sai định dạng email !',
             'birth_day.required' => $this->errors['required'],
             'address.required' => $this->errors['required'],
+            'address.max' => 'Địa chỉ học viên tối đa có 255 ký tự !',
             'phone.required' => $this->errors['required'],
-            'phone.numeric' => 'Số điện thoại phải là số !'
+            'phone.numeric' => 'Số điện thoại phải là số !',
+            'phone.max' => 'Số điện thoại học viên tối đa có 14 ký tự !',
+
         ];
     }
 }
