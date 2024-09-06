@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthenController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\RoleController;
@@ -24,4 +25,5 @@ Route::resource('teachers', TeacherController::class);
 Route::resource('rooms', RoomController::class);
 Route::resource('sessions', SessionController::class);
 Route::resource('expense', ExpenseController::class);
+Route::resource('course', CourseController::class);
 
