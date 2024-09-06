@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
-            $table->double('price')->nullable();
+            $table->decimal('price', 15,2)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
