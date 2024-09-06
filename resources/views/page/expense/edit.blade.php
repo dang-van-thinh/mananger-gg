@@ -5,7 +5,7 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <strong class="card-title">Chỉnh sửa: </strong>
+            <strong class="card-title">Chỉnh sửa: {{ $expense->title }}</strong>
         </div>
         <div class="card-body">
             <form action="{{ route('expense.update', $expense->id) }}" method="POST">
