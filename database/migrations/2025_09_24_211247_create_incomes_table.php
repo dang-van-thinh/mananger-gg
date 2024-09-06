@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('incomes', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Classes::class)->constrained();
-            $table->double('amount')->nullable();
+            $table->decimal('amount', 15,2)->nullable();
             $table->string('title')->nullable();
             $table->text('description')->nullable();
             $table->date('date')->default(Date::now());
