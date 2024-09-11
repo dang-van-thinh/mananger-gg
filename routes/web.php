@@ -32,4 +32,3 @@ Route::resource('classes', ClassController::class);
 Route::get('setting/show', [SettingController::class, 'show'])->name('setting.show');
 Route::put('setting/update/{id}', [SettingController::class, 'update'])->name('setting.update');
 Route::delete('setting/delete/{id}', [SettingController::class, 'delete'])->name('setting.delete');
-

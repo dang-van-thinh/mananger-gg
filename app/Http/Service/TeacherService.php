@@ -39,6 +39,8 @@ class TeacherService
 
     return $this->teacherRepository->create($data);
 }
+
+
     public function getAllTeachers()
     {
         return $this->teacherRepository->getAll();
