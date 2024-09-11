@@ -7,6 +7,11 @@ use App\Models\Course;
 class CourseRepository
 {
 
+    public function alls()
+    {
+        return Course::all();
+    }
+
     public function all()
     {
         return Course::latest('id')->paginate(10);

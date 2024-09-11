@@ -29,7 +29,7 @@ class UpdateStudentRequest extends FormRequest
             'email' => 'required|email|max:100',
             'birth_day' => 'required',
             'address' => 'required|max:255',
-            'phone' => 'required|numeric|max:14'
+            'phone' => 'required|regex:/^(?:\+?[0-9]{1,3})?[\d\s\-]{7,15}$/|max:14'
         ];
     }
     public function messages()
@@ -44,8 +44,8 @@ class UpdateStudentRequest extends FormRequest
             'address.required' => $this->errors['required'],
             'address.max' => 'Địa chỉ học viên tối đa có 255 ký tự !',
             'phone.required' => $this->errors['required'],
-            'phone.numeric' => 'Số điện thoại phải là số !',
-            'phone.max' => 'Số điện thoại học viên tối đa có 14 ký tự !',
+            'phone.regex' => 'Số điện thoại không đúng định dạng !',
+            'phone.max' => 'Số điện thoại không vượt quá 14 ký tự !',
 
         ];
     }

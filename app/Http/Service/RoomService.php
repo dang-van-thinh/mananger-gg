@@ -14,6 +14,11 @@ class RoomService
     {
         $this->roomReponsitory = $roomReponsitory;
     }
+
+    public function alls(){
+        return $this->roomReponsitory->alls();
+    }
+
     public function getAll()
     {
         $listRoom = $this->roomReponsitory->getAll();
@@ -31,7 +36,7 @@ class RoomService
             'capacity' => $request->capacity,
             'location' => $request->location,
         ];
-    
+
         return $this->roomReponsitory->create($data);
     }
 
@@ -41,7 +46,7 @@ class RoomService
             'name' => $request->name,
             'capacity' => $request->capacity,
             'location' => $request->location,
-            
+
         ];
         return $this->roomReponsitory->update($id, $data);
     }

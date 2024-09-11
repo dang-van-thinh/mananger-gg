@@ -5,6 +5,7 @@ namespace App\Http\Service;
 use App\Http\Repository\SessionReponsitory;
 use App\Http\Requests\session\CreateSessionRequest;
 use App\Http\Requests\session\UpdateSessionRequest;
+use Illuminate\Http\Request;
 
 class SessionService
 {
@@ -14,6 +15,23 @@ class SessionService
     {
         $this->sessionRepository = $sessionRepository;
     }
+
+    public function alls()
+    {
+        return $this->sessionRepository->alls();
+    }
+
+    public function getSessionByRoomAndStartDateAndEndDateAndDayOfWeeks(Request $request)
+    {
+
+        $room = $request->input("roomId");
+        $startDate = $request->input('startDate');
+        $endDate = $request->input('endDate');
+        $dayOfWeeks = $request->input('dayOfWeek');
+        
+        return $this->sessionRepository->getSessionByRoomAndStartDateAndEndDateAndDayOfWeeks($room, $startDate, $endDate, $dayOfWeeks);
+    }
+
     public function getAll()
     {
         $listSession = $this->sessionRepository->getAll();
@@ -31,7 +49,7 @@ class SessionService
         'start_time' => $request->start_time,
         'end_time' => $request->end_time,
     ];
-        
+
     return $this->sessionRepository->create($data);
 }
 
@@ -41,7 +59,7 @@ class SessionService
             'name' => $request->name,
             'start_time' => $request->start_time,
             'end_time' => $request->end_time,
-            
+
         ];
         return $this->sessionRepository->update($id, $data);
     }

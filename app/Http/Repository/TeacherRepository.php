@@ -4,11 +4,15 @@ namespace App\Http\Repository;
 use App\Models\Teacher;
 use Illuminate\Support\Facades\Storage;
 
-
 class TeacherRepository
 {
     public function create($data){
        return Teacher::create($data);
+    }
+
+    public function alls()
+    {
+        return Teacher::all();
     }
     public function getAll(){
         return Teacher::paginate(10);
@@ -28,7 +32,7 @@ class TeacherRepository
     }
     public function update($id, $data){
         $teacher = Teacher::findOrFail($id);
-        return $teacher->update($data); 
+        return $teacher->update($data);
     }
-    
+
 }

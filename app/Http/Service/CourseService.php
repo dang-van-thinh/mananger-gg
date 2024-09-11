@@ -14,6 +14,12 @@ class CourseService
     {
         $this->courseRepository = $courseRepository;
     }
+
+    public function alls()
+    {
+        return $this->courseRepository->alls();
+    }
+
     public function getAll()
     {
         return $this->courseRepository->all();

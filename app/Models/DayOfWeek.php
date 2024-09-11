@@ -17,6 +17,6 @@ class DayOfWeek extends Model
 
     public function classes()
     {
-        return $this->belongsToMany(DayOfWeek::class,'day_of_class','day_of_week_id','classes_id' );
+        return $this->belongsToMany(Classes::class,'day_of_class','classes_id','day_of_week_id' );
     }
 }
