@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('day_of_class', function (Blueprint $table) {
             $table->foreignIdFor(Classes::class)->constrained();
             $table->foreignIdFor(DayOfWeek::class)->constrained();
-            $table->primary('classes_id','day_of_week_id');
+            $table->primary(['classes_id','day_of_week_id']);
         });
     }
 

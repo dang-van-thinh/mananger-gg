@@ -21,10 +21,17 @@
                         <li><i class="fa fa-list"></i><a href="{{route('teachers.index')}}">Danh sách giảng viên</a></li>
                     </ul>
                 </li>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false"> <i class="menu-icon fa fa-users"></i>QL Lớp Học</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-list"></i><a href="{{route('classes.index')}}">Danh sách lớp học</a></li>
+                    </ul>
+                </li>
 
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false"><i class="menu-icon fa fa-id-card"></i>QL Vai trò</a>
+                        aria-expanded="false"><i class="menu-icon fa fa-id-card"></i>QL Vai Trò</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="fa fa-list"></i><a href="{{ route('role.index') }}">Danh sách vai trò</a></li>
                     </ul>
@@ -32,7 +39,7 @@
 
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false"><i class="menu-icon fa fa-user"></i>QL Người dùng</a>
+                        aria-expanded="false"><i class="menu-icon fa fa-user"></i>QL Người Dùng</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="fa fa-list"></i><a href="{{ route('user.index') }}">Danh sách người dùng</a></li>
                     </ul>
@@ -41,20 +48,20 @@
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
 
-                        aria-expanded="false"><i class="menu-icon fa fa-building"></i>QL Phòng học</a>
+                        aria-expanded="false"><i class="menu-icon fa fa-building"></i>QL Phòng Học</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="fa fa-list"></i><a href="{{ route('rooms.index') }}">Danh sách phòng học</a></li>
                     </ul>
                 </li>
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false"><i class="menu-icon fa fa-clock-o"></i>QL ca học</a>
+                        aria-expanded="false"><i class="menu-icon fa fa-clock-o"></i>QL Ca Học</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="fa fa-list"></i><a href="{{ route('sessions.index') }}">Danh sách ca học</a></li>
                     </ul>
                 <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false"><i class="menu-icon fa fa-money"></i>QL Chi phí khác</a>
+                    <a href="#" class="dropdown-toggle " data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false"><i class="menu-icon fa fa-money"></i>QL Chi Phí Khác</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="fa fa-list"></i><a href="{{ route('expense.index') }}">Danh sách chi phí khác</a></li>
                     </ul>

@@ -30,7 +30,7 @@ class CreateStudentRequest extends FormRequest
             'birth_day' => 'required',
             'address' => 'required|max:255',
             'image' => 'required|image|max:255',
-            'phone' => 'required|numeric|max:14'
+            'phone' => 'required|regex:/^(?:\+?[0-9]{1,3})?[\d\s\-]{7,15}$/|max:14'
         ];
     }
     public function messages()
@@ -49,8 +49,8 @@ class CreateStudentRequest extends FormRequest
             'image.image' => 'Sai định dạng ảnh !',
             'image.max' => 'Độ dài đường dẫn ảnh là 255 ký tự !',
             'phone.required' => $this->errors['required'],
-            'phone.numeric' => 'Số điện thoại phải là số !',
-            'phone.max' => 'Số điện thoại học viên tối đa có 14 ký tự !',
+            'phone.regex' => 'Số điện thoại không đúng định dạng !',
+            'phone.max' => 'Số điện thoại không vượt quá 14 ký tự !',
 
         ];
     }

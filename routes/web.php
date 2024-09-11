@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthenController;
+use App\Http\Controllers\ClassController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DashboardController;
@@ -16,7 +17,7 @@ use App\Http\Controllers\SessionController;
 use App\Http\Controllers\SettingController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/',[DashboardController::class,'dashboard'])->name('dashboard');
+Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
 
 Route::resource('role', RoleController::class);
 Route::resource('user', UserController::class);
@@ -26,7 +27,9 @@ Route::resource('rooms', RoomController::class);
 Route::resource('sessions', SessionController::class);
 Route::resource('expense', ExpenseController::class);
 Route::resource('course', CourseController::class);
+Route::resource('classes', ClassController::class);
 
 Route::get('setting/show', [SettingController::class, 'show'])->name('setting.show');
 Route::put('setting/update/{id}', [SettingController::class, 'update'])->name('setting.update');
 Route::delete('setting/delete/{id}', [SettingController::class, 'delete'])->name('setting.delete');
+

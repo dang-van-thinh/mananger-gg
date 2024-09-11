@@ -6,6 +6,10 @@ use App\Models\Room;
 class RoomReponsitory
 {
 
+    public function alls()
+    {
+        return Room::all();
+    }
     public function getAll()
     {
         return Room::paginate(10);

@@ -21,11 +21,9 @@ return new class extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->foreignIdFor(Course::class)->constrained()->onDelete("cascade")->onUpdate('cascade');
-            $table->foreignIdFor(Student::class)->constrained()->onDelete("cascade")->onUpdate('cascade');
             $table->foreignIdFor(Teacher::class)->constrained()->onDelete("cascade")->onUpdate('cascade');
             $table->foreignIdFor(Session::class)->constrained()->onDelete("cascade")->onUpdate('cascade');
             $table->foreignIdFor(Room::class)->constrained()->onDelete("cascade")->onUpdate('cascade');
-            $table->foreignIdFor(DayOfWeek::class)->constrained();
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
             $table->softDeletes();

@@ -15,6 +15,11 @@ class TeacherService
         $this->teacherRepository = $teacherRepository;
     }
 
+    public function alls()
+    {
+        return $this->teacherRepository->alls();
+    }
+
     public function createTeacher(CreateTeacherRequest $request)
 {
     $data = [
@@ -34,9 +39,7 @@ class TeacherService
 
     return $this->teacherRepository->create($data);
 }
-
-    
-    public function getAll()
+    public function getAllTeachers()
     {
         return $this->teacherRepository->getAll();
     }
@@ -69,7 +72,7 @@ class TeacherService
 
         } elseif (!$request->hasFile('image') && $teacher->image) {
             $data['image'] = $teacher->image;
-        }    
+        }
         return $this->teacherRepository->update($id, $data);
     }
 }
