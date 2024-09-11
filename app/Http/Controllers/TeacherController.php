@@ -20,7 +20,8 @@ class TeacherController extends Controller
 
     public function index()
     {
-        return $this->teacherService->getAllTeachers();
+        $listTeacher = $this->teacherService->getAll();
+        return view('page.teacher.list', compact('listTeacher'));
     }
 
 

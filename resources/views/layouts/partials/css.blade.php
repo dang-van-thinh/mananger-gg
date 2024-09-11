@@ -1,5 +1,5 @@
 <link rel="apple-touch-icon" href="https://i.imgur.com/QRAUqs9.png">
-<link rel="shortcut icon" href="https://i.imgur.com/QRAUqs9.png">
+<link rel="shortcut icon" href="{{ '/Storage/' . $setting->logo_tab }}">
 {{-- file bootstrap 5 mới nhất --}}
 <link rel="stylesheet" href="/template/assets/css/bootstrap5.min.css">
 

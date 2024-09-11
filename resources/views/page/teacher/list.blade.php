@@ -24,8 +24,6 @@
               <th scope="col">Hình ảnh</th>
               <th scope="col">Email</th>
               <th scope="col">Số điện thoại</th>
-              <th scope="col">Ngày sinh</th>
-              <th scope="col">Địa chỉ</th>
               <th scope="col">Thông tin chuyên môn</th>
               <th scope="col">Ngày tham gia</th>
               <th width='170px' scope="col">Thao tác</th>
@@ -41,8 +39,6 @@
                     </td>
                     <td>{{$value->email}}</td>
                     <td>{{$value->phone}}</td>
-                    <td>{{$value->birth_day}}</td>
-                    <td>{{$value->address}}</td>
                     <td>{{$value->qualification}}</td>
                     <td>{{$value->enrollment_date}}</td>
                     <td>

@@ -22,7 +22,8 @@ class SessionController extends Controller
 
     public function index()
     {
-        return $this->sessionService->getAll();
+        $listSession =  $this->sessionService->getAll();
+        return view('page.session.list', compact('listSession'));
     }
 
 

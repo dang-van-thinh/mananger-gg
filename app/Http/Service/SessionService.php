@@ -34,8 +34,7 @@ class SessionService
 
     public function getAll()
     {
-        $listSession = $this->sessionRepository->getAll();
-        return view('page.session.list', compact('listSession'));
+        return $this->sessionRepository->getAll();
     }
 
     public function find($id)

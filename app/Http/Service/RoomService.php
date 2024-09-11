@@ -21,8 +21,8 @@ class RoomService
 
     public function getAll()
     {
-        $listRoom = $this->roomReponsitory->getAll();
-        return view('page.room.list', compact('listRoom'));
+        
+        return $this->roomReponsitory->getAll();
     }
 
     public function find($id)

@@ -18,7 +18,8 @@ class RoomController extends Controller
 
     public function index()
     {
-        return $this->roomService->getAll();
+        $listRoom = $this->roomService->getAll();
+        return view('page.room.list', compact('listRoom'));
     }
 
     public function create()

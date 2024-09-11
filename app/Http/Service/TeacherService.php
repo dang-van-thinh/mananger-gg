@@ -39,12 +39,9 @@ class TeacherService
 
     return $this->teacherRepository->create($data);
 }
-
-
     public function getAllTeachers()
     {
-        $listTeacher = $this->teacherRepository->getAll();
-        return view('page.teacher.list', compact('listTeacher'));
+        return $this->teacherRepository->getAll();
     }
     public function deleteTeacher($id)
     {
