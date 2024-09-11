@@ -13,14 +13,14 @@ class TeacherController extends Controller
 
     public function __construct(
         TeacherService $teacherService
-    ){
+    ) {
         $this->teacherService = $teacherService;
     }
 
 
     public function index()
     {
-        $listTeacher = $this->teacherService->getAll();
+        $listTeacher = $this->teacherService->getAllTeachers();
         return view('page.teacher.list', compact('listTeacher'));
     }
 
@@ -33,11 +33,11 @@ class TeacherController extends Controller
 
     public function store(CreateTeacherRequest $request)
     {
-        if($this->teacherService->createTeacher($request)){
+        if ($this->teacherService->createTeacher($request)) {
             return redirect()->route('teachers.create')->with('success', 'Thêm giảng viên thành công.');
-        }else{
+        } else {
             return back()->with('error', 'Thêm giảng viên thất bại.');
-        }         
+        }
     }
 
 
@@ -52,11 +52,10 @@ class TeacherController extends Controller
     {
         $teacher = $this->teacherService->findTeacher($id);
         return view('page.teacher.update', compact('teacher'));
-        
     }
 
     public function update(UpdateTeacherRequest $request, $id)
-    {  
+    {
         if ($this->teacherService->updateTeacher($request, $id)) {
             return redirect()->route('teachers.index')->with('success', 'Sửa giảng viên thành công.');
         } else {
@@ -66,10 +65,10 @@ class TeacherController extends Controller
 
     public function destroy($id)
     {
-        if( $this->teacherService->deleteTeacher($id)){
+        if ($this->teacherService->deleteTeacher($id)) {
             return redirect()->route('teachers.index')->with('success', 'Xóa giảng viên thành công.');
-        }else{
+        } else {
             return back()->with('error', 'Đã xảy ra lỗi không tìm thấy giảng viên.');
-        }    
+        }
     }
 }
