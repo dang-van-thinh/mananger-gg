@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignIdFor(Teacher::class)->constrained();
 
             $table->integer('total_hours')->nullable();
-            $table->double('total_salary')->nullable();
+            $table->decimal('total_salary', 15,2)->nullable();
             $table->date('pay_date_start');
             $table->date('pay_date_end');
             $table->timestamps();

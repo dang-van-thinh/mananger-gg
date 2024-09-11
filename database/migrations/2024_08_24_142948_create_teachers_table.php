@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('address', 255)->nullable();
             $table->date('birth_day')->nullable();
             $table->string('qualification')->nullable();
-            $table->double('hourly_rate')->nullable();
+            $table->decimal('hourly_rate', 15,2)->nullable();
             $table->date('enrollment_date')->default(Date::now());
             $table->timestamps();
             $table->softDeletes();
