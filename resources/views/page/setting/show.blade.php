@@ -9,46 +9,51 @@
         </div>
         <div class="card-body">
             <!-- Form cập nhật -->
-            <form action="{{ route('setting.update', $setting->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('settings.updateLogo') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-4">
                         <div class="form-group">
                             <label for="logo">Logo thương hiệu</label>
                             <div>
-                                <input type="file" id="logo" name="logo" class="form-control">
-                                <img src="{{ '/Storage/' . $setting->logo }}" alt="" width="100px">
+                                <div>
+                                    <input type="file" id="logo" name="logo" class="form-control mb-1">
+                                    <img src="{{ '/Storage/' . $settingLogo->value }}" alt="Logo thương hiệu">
+                                </div>
+                                @error('logo')
+                                    <p class="text-danger badge">{{ $message }}</p>
+                                @enderror
                             </div>
-                            @error('logo')
-                                <p class="text-danger badge">{{ $message }}</p>
-                            @enderror
                         </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-4">
                         <div class="form-group">
                             <label for="logo_tab">Biểu tượng trang web</label>
                             <div>
-                                <input type="file" id="logo_tab" name="logo_tab" class="form-control">
-                                <img src="{{ '/Storage/' . $setting->logo_tab }}" alt="" width="100px">
+                                <div>
+                                    <input type="file" id="logo_tab" name="logo_tab" class="form-control mb-1">
+                                    <img src="{{ '/Storage/' . $settingLogoTab->value }}" alt="Biểu tượng trang web"
+                                        width="100px">
+                                </div>
+                                @error('logo_tab')
+                                    <p class="text-danger badge">{{ $message }}</p>
+                                @enderror
                             </div>
-                            @error('logo_tab')
-                                <p class="text-danger badge">{{ $message }}</p>
-                            @enderror
                         </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <h3>Chú ý</h3><br>
+                        <small>- Kích thước Logo không được vượt quá 2MB, có kích thước chính xác 145x40 pixel.</small>
+                        <br><br>
+                        <small>- Kích thước Biểu tượng website không được vượt quá 512KB,có kích thước trong khoảng từ 16x16
+                            đến 512x512 pixel và có tỷ lệ 1:1</small>
                     </div>
                 </div>
                 <!-- Nút Lưu thay đổi -->
                 <button type="submit" class="btn btn-success">Lưu thay đổi</button>
             </form>
 
-            <!-- Form xóa -->
-            {{-- <form action="{{ route('setting.delete', $setting->id) }}" method="post" style="margin-top: 20px;">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-danger" onclick="return confirm('Chắc chắn muốn xoá không?')">Xóa tất
-                    cả</button>
-            </form> --}}
         </div>
     </div>
 @endsection

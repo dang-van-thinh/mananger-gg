@@ -14,60 +14,46 @@ class SettingService
     {
         $this->settingRepository = $settingRepository;
     }
+    protected function getOrCreateAttribute($attribute)
+    {
+        $setting = $this->settingRepository->findByAttribute($attribute);
 
-    public function getAll()
-    {
-        return $this->settingRepository->all();
-    }
-    public function show()
-    {
-        $setting = $this->settingRepository->first();
         if (!$setting) {
-            $setting = $this->settingRepository->createNull([]);
+            $setting = $this->settingRepository->createAttributeNull($attribute);
         }
 
         return $setting;
     }
-
-    public function update(UpdateSettingRequest $request, $id)
+    public function getOrCreateLogo()
     {
-        $setting = $this->settingRepository->findOrFail($id);
-        $data = $request->except(['logo', 'logo_tab']);
-
-        if ($request->hasFile('logo')) {
-            $newLogo = Storage::put('settings/logo', $request->file('logo'));
-
-            if ($setting->logo && Storage::exists($setting->logo)) {
-                Storage::delete($setting->logo);
-            }
-
-            $data['logo'] = $newLogo;
-        }
-
-        if ($request->hasFile('logo_tab')) {
-            $newLogoTab = Storage::put('settings/tab', $request->file('logo_tab'));
-
-            if ($setting->logo_tab && Storage::exists($setting->logo_tab)) {
-                Storage::delete($setting->logo_tab);
-            }
-
-            $data['logo_tab'] = $newLogoTab;
-        }
-
-        return $this->settingRepository->update($data, $id);
+        return $this->getOrCreateAttribute('logo');
     }
-
-    public function delete($id)
+    public function getOrCreateLogoTab()
     {
-        $setting = $this->settingRepository->findOrFail($id);
+        return $this->getOrCreateAttribute('logo_tab');
+    }
+    protected function handleFileUpdate($request, $attribute, $directory)
+    {
+        if ($request->hasFile($attribute)) {
+            $newPath = Storage::put($directory, $request->file($attribute));
 
-        if ($setting->logo && Storage::exists($setting->logo)) {
-            Storage::delete($setting->logo);
-        }
-        if ($setting->logo_tab && Storage::exists($setting->logo_tab)) {
-            Storage::delete($setting->logo_tab);
-        }
+            if ($newPath) {
+                // Tìm thuộc tính hiện tại và xóa file cũ nếu có
+                $existing = $this->settingRepository->findByAttribute($attribute);
 
-        return $this->settingRepository->delete($id);
+                if ($existing && $existing->value && Storage::exists($existing->value)) {
+                    Storage::delete($existing->value);
+                }
+
+                // Cập nhật hoặc tạo mới thuộc tính
+                $this->settingRepository->updateOrCreateAttribute($attribute, $newPath);
+            }
+        }
+    }
+    // Cập nhật logo và logo tab
+    public function updateLogo(UpdateSettingRequest $request)
+    {
+        $this->handleFileUpdate($request, 'logo', 'settings/logo');
+        $this->handleFileUpdate($request, 'logo_tab', 'settings/logo_tab');
     }
 }

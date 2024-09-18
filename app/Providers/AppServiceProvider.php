@@ -6,6 +6,7 @@ use App\Http\Service\SettingService;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,7 +26,13 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrapFive();
 
         // Chia sẻ cài đặt với tất cả các view
-        $setting = $settingService->show();
-        View::share('setting', $setting);
+        if (Schema::hasTable('settings')) {
+            $settings = [
+                'settingLogo' => $settingService->getOrCreateLogo(),
+                'settingLogoTab' => $settingService->getOrCreateLogoTab(),
+            ];
+
+            View::share($settings);
+        }
     }
 }

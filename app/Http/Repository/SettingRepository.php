@@ -6,35 +6,25 @@ use App\Models\Setting;
 
 class SettingRepository
 {
-    public function all()
+    // Tìm thuộc tính theo attribute
+    public function findByAttribute($attribute)
     {
-        return Setting::all();
+        return Setting::where('attribute', $attribute)->first();
     }
-    public function first()
-    {
-        return Setting::first();
-    }
-    public function findOrFail($id)
-    {
-        return Setting::findOrFail($id);
-    }
-    public function createNull(array $data)
+
+    // Tạo thuộc tính với giá trị null
+    public function createAttributeNull($attribute)
     {
         return Setting::create([
-            'logo' => null,
-            'logo_tab' => null,
+            'attribute' => $attribute,
+            'value' => null,
         ]);
     }
-    public function update(array $data, $id)
+    public function updateOrCreateAttribute($attribute, $value)
     {
-        $setting = Setting::findOrFail($id);
-        $setting->update($data);
-        return $setting;
-    }
-    public function delete($id)
-    {
-        $setting = Setting::findOrFail($id);
-        $setting->delete();
-        return $setting;
+        return Setting::updateOrCreate(
+            ['attribute' => $attribute],
+            ['value' => $value]
+        );
     }
 }
