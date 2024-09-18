@@ -31,3 +31,4 @@ Route::resource('classes', ClassController::class);
 
 Route::get('/settings', [SettingController::class, 'show'])->name('settings.show');
 Route::put('/settings/logo', [SettingController::class, 'uploadLogo'])->name('settings.updateLogo');
+
