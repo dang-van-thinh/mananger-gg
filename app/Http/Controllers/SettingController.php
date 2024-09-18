@@ -15,24 +15,14 @@ class SettingController extends Controller
     }
     public function show()
     {
-        $setting = $this->settingService->show();
+        $settingLogo = $this->settingService->getOrCreateLogo();
+        $settingLogoTab = $this->settingService->getOrCreateLogoTab();
 
-        return view('page.setting.show', compact('setting'));
+        return view('page.setting.show', compact('settingLogo', 'settingLogoTab'));
     }
-    public function update(UpdateSettingRequest $request, $id)
+    public function uploadLogo(UpdateSettingRequest $request)
     {
-        if ($this->settingService->update($request, $id)) {
-            return back()->with('success', 'Thay đổi thành công');
-        } else {
-            return back()->with('error', 'Thay đổi thất bại');
-        }
-    }
-    public function delete($id)
-    {
-        if ($this->settingService->delete($id)) {
-            return back()->with('success', 'Xóa thành công');
-        } else {
-            return back()->with('error', 'Xóa thất bại');
-        }
+        $this->settingService->updateLogo($request);
+        return back()->with('success', 'Thay đổi thành công');
     }
 }

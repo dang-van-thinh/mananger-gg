@@ -1,7 +1,7 @@
 <div class="top-left">
     <div class="navbar-header">
-        <a class="navbar-brand" href="./"><img src="{{ '/Storage/' . $setting->logo }}" alt="Logo" height="40px"></a>
-        <a class="navbar-brand hidden" href="./"><img src="/template/images/logo2.png" alt="Logo"></a>
+        <a class="navbar-brand" href="{{ route('dashboard') }}"><img src="{{ '/Storage/' . $settingLogo->value }}" alt="Logo" height="40px"></a>
+        <a class="navbar-brand hidden" href="{{ route('dashboard') }}"><img src="/template/images/logo2.png" alt="Logo"></a>
         <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
     </div>
 </div>
@@ -95,7 +95,7 @@
                 <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span
                         class="count">13</span></a>
 
-                <a class="nav-link" href="{{ route('setting.show') }}"><i class="fa fa -cog"></i>Settings</a>
+                <a class="nav-link" href="{{ route('settings.show') }}"><i class="fa fa -cog"></i>Settings</a>
 
                 <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
             </div>
