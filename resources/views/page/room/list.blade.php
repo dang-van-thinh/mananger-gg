@@ -4,17 +4,47 @@
 @endsection
 @section('content')
 <div class="card">
-
-<div class="card-header">
-    <div>
-        <h3 class="d-flex-inline">Danh sách phòng học</h3>
+    <div class="card-header">
+        <strong>Thêm mới phòng học</strong>
+    </div>
+    <div class="card-body card-block">
+        <form action="{{route('rooms.store')}}" method="post" >
+            @csrf
+            <div class="row">
+                <div class="col col-4">
+                    <label class=" form-control-label">Tên phòng học</label>
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-home"></i></div>
+                        <input type="text" class="form-control" name="name" value="{{ old('name')}}" placeholder="Nhập tên của phòng học">
+                    </div>
+                    <small class="form-text text-danger badge">{{ $errors->first('name') }}</small>
+                </div>
+                <div class="col col-4">
+                    <label class=" form-control-label">Sức chứa</label>
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-users"></i></div>
+                        <input type="text" class="form-control" name="capacity" value="{{ old('capacity')}}" placeholder="Nhập sức chứa của phòng học">
+                    </div>
+                    <small class="form-text text-danger badge">{{ $errors->first('capacity') }}</small>
+                </div>
+                <div class="col col-4">
+                    <label class=" form-control-label">Mổ tả vị trí phòng</label>
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-thumb-tack"></i></div>
+                        <input type="text" class="form-control" name="location" value="{{ old('location')}}" placeholder="Nhập mô tả vị trí của phòng học">
+                    </div>
+                    <small class="form-text text-danger badge">{{ $errors->first('location') }}</small>
+                </div>    
+                   
+            </div>
+            <div class="d-flex justify-content-end mt-2">
+                <button type="submit" class="btn btn-success px-5">Thêm mới</button>    
+            </div>   
+        </form>
     </div>
 </div>
-<div class="d-flex justify-content-end mt-3 me-3">
-    <a class="btn btn-success px-4" href="{{ route('rooms.create') }}">
-        Thêm mới
-    </a>
-</div>
+
+<div class="card">
 <div class="card-body">
     <table class="table table-bordered">
         <thead>

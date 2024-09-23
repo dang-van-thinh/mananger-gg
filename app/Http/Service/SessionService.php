@@ -21,6 +21,7 @@ class SessionService
         return $this->sessionRepository->alls();
     }
 
+    //getSessionsByRoomAndDateRangeAndDays
     public function getSessionByRoomAndStartDateAndEndDateAndDayOfWeeks(Request $request)
     {
 

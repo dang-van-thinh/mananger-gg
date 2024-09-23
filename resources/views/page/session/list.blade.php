@@ -4,17 +4,46 @@
 @endsection
 @section('content')
 <div class="card">
-
-<div class="card-header">
-    <div>
-        <h3 class="d-flex-inline">Danh sách giảng viên</h3>
+    <div class="card-header">
+        <strong>Thêm mới ca học</strong>
+    </div>
+    <div class="card-body card-block">
+        <form action="{{route('sessions.store')}}" method="post" >
+            @csrf
+            <div class="row">
+                <div class="col col-4">
+                    <label class=" form-control-label">Tên ca học</label>
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-tag"></i></div>
+                        <input type="text" class="form-control" name="name" value="{{ old('name')}}" placeholder="Nhập tên của ca học">
+                    </div>
+                    <small class="form-text text-danger badge">{{ $errors->first('name') }}</small>
+                </div>
+                <div class="col col-4">
+                    <label class=" form-control-label">Thời gian bắt đầu</label>
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-clock-o"></i></div>
+                        <input type="time" class="form-control" name="start_time" value="{{ old('start_time')}}" placeholder="Nhập thời gian bắt đầu ca học">
+                    </div>
+                    <small class="form-text text-danger badge">{{ $errors->first('start_time') }}</small>
+                </div>
+                <div class="col col-4">
+                    <label class=" form-control-label">Thời gian kết thúc</label>
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-clock-o"></i></div>
+                        <input type="time" class="form-control" name="end_time" value="{{ old('end_time')}}" placeholder="Nhập thời gian kết thúc ca học">
+                    </div>
+                    <small class="form-text text-danger badge">{{ $errors->first('end_time') }}</small>
+                </div>   
+            </div>
+            <div class="d-flex justify-content-end mt-2">
+                <button type="submit" class="btn btn-success px-5">Thêm mới</button>    
+            </div>  
+        </form>
     </div>
 </div>
-<div class="d-flex justify-content-end mt-3 me-3">
-    <a class="btn btn-success px-4" href="{{ route('sessions.create') }}">
-        Thêm mới
-    </a>
-</div>
+
+<div class="card">
 <div class="card-body">
     <table class="table table-bordered">
         <thead>
