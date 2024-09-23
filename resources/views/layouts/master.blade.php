@@ -27,7 +27,7 @@
             <!-- /#header -->
 
             <!-- Content -->
-            <main class="content py-5" style="min-height : 80vh">
+            <main class="content py-3" style="min-height : 80vh">
                 @yield('content')
             </main>
             <!-- /.content -->
@@ -49,6 +49,3 @@
     </body>
 
 </html>
-
-
-
