@@ -16,7 +16,7 @@ class Student extends Model
         'phone',
         'birth_day',
         'address',
-        'enrollment_date',
+        'enrollment_date', 
         'image'
     ];
 

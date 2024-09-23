@@ -26,10 +26,10 @@ class RoleController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        return view('page.role.create');
-    }
+    // public function create()
+    // {
+    //     return view('page.role.create');
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -66,9 +66,9 @@ class RoleController extends Controller
      */
     public function update(UpdateRoleRequest $request, $id)
     {
-        if ( $this->roleService->update($id, $request)) {
+        if ($this->roleService->update($id, $request)) {
             return redirect()->route('role.index')->with('success', 'Cập nhật vai trò thành công');
-        }else{
+        } else {
             return back()->with('Cập nhật', 'Cập nhật vai trò thất bại');
         }
     }
