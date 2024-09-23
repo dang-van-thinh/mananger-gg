@@ -22,15 +22,15 @@ class RoomController extends Controller
         return view('page.room.list', compact('listRoom'));
     }
 
-    public function create()
-    {
-        return view('page.room.create');
-    }
+    // public function create()
+    // {
+    //     return view('page.room.create');
+    // }
 
     public function store(CreateRoomRequest $request)
     { 
         if($this->roomService->create($request)){
-            return redirect()->route('rooms.create')->with('success', 'Thêm phòng thành công.');
+            return back()->with('success', 'Thêm phòng thành công.');
         }else{
             return back()->with('error', 'Thêm phòng thất bại.');
         }         

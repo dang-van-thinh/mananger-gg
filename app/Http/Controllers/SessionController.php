@@ -27,16 +27,16 @@ class SessionController extends Controller
     }
 
 
-    public function create()
-    {
-        return view('page.session.create');
-    }
+    // public function create()
+    // {
+    //     return view('page.session.create');
+    // }
 
 
     public function store(CreateSessionRequest $request)
     {
         if($this->sessionService->create($request)){
-            return redirect()->route('sessions.create')->with('success', 'Thêm ca học thành công.');
+            return back()->with('success', 'Thêm ca học thành công.');
         }else{
             return back()->with('error', 'Thêm ca học thất bại.');
         }
